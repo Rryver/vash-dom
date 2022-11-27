@@ -1,74 +1,48 @@
 <?php
 
-/** @var yii\web\View $this */
+/**
+ * @var yii\web\View $this
+ */
 
-$this->title = 'My Yii Application';
+$this->title = 'Ваш дом - салон мебели | Кухни на заказ в Вологодской области';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
+<?= $this->render('partials/_slider-main') ?>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTest">
-        Launch demo modal
-    </button>
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+<section class="about">
+    <div class="container">
+        <div class="about__wrapper">
+            <img class="about__line line-top-left" src="images/about_line_top-left.svg">
+            <img class="about__line line-top-right" src="images/about_line_top-right.svg">
+            <!--                    <img class="about__line_top" src="images/about_top.svg">-->
+            <div class="about__header">
+                <h1 class="heading-36">САЛОН МЕБЕЛИ «<span class="text-color-red">ВАШ ДОМ</span>»</h1>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+            <div class="about__content">
+                У Вас есть возможность обставить свое жилье так, как этого хотите Вы. Окружить себя теми предметами,
+                которые будут полезны и удобны. Найти то, что будет поднимать настроение и задавать ритм Вашей
+                жизни. Сделайте это без лишних потерь – финансовых и временных.
+                <ul>
+                    <li>- 3 выставочных зала;</li>
+                    <li>- У нас большой опыт работы, знания и профессиональный коллектив;</li>
+                    <li>- У нас покупатель подбирает именно такой материал, который бы идеально подходил под интерьер и стиль;</li>
+                    <li>- Мебель можно заказать любой конструкции, как по собственному проекту, так и по предложениям нашего дизайнера;</li>
+                    <li>- Для каждого клиента – у нас индивидуальный подход, учитывая все его пожелания, потребности и требования.</li>
+                </ul>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+            <div class="about__footer">
+                <h1 class="heading-36">ПРИЯТНО БЫТЬ <span class="text-color-red">ДОМА</span></h1>
             </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="modalTest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <!--                    <img class="about__line_footer" src="images/about_footer.svg">-->
+            <img class="about__line line-bottom-left" src="images/about_line_bottom-left.svg">
+            <img class="about__line line-bottom-right" src="images/about_line_bottom-right.svg">
         </div>
     </div>
-</div>
+</section>
+
+<?= $this->render('/templates/_block-promo') ?>
+
+<?= $this->render('/templates/_block-steps') ?>
+
+<?= $this->render('/templates/_block-our-works') ?>

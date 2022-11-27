@@ -1,0 +1,107 @@
+.request {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    &__wrap {
+        height: 650px;
+        position: relative;
+        padding: 40px 40px 40px 80px;
+        border-radius: @border-radius-common;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        &::after {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "";
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.42) 23.35%, rgba(0, 0, 0, 0) 61.22%);
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__title {
+        margin-top: 260px;
+        position: relative;
+        z-index: 100;
+
+        & h2 {
+            &:extend(.text-regular-48);
+            color: @color-text-light;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &__form {
+        display: block;
+        position: relative;
+        z-index: 100;
+        margin-top: 20px;
+    }
+}
+
+.request-form {
+    display: inline-block;
+    padding: 20px;
+    background: @color-theme-extra-light;
+    border-radius: @border-radius-common;
+
+    & .form-group {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    & input {
+        display: inline-block;
+        max-width: 220px;
+        border: none;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .request {
+        text-align: center;
+        &__wrap {
+            padding: 20px;
+        }
+    }
+
+    .request-form {
+        width: 100%;
+        text-align: center;
+        max-width: 400px;
+
+        & .form-group {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        & input {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 576px){
+    .request {
+        &__wrap {
+            padding: 20px;
+        }
+
+        &__title {
+            & h2 {
+                font-size: 36px;
+            }
+        }
+    }
+    .request-form {
+
+    }
+}
