@@ -4,11 +4,11 @@
 namespace app\models\search;
 
 
-use app\models\Product;
+use app\models\Kitchen;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class ProductSearch extends Product
+class KitchenSearch extends Kitchen
 {
     /**
      * {@inheritdoc}
@@ -16,8 +16,8 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'is_done'], 'safe'],
+            [['id', 'visible'], 'integer'],
+            [['title'], 'safe'],
         ];
     }
 
@@ -39,12 +39,13 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = parent::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['defaultOrder' => ['sort' => SORT_ASC]],
         ]);
 
         $this->load($params);

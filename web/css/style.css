@@ -550,6 +550,7 @@ text-align-center {
 }
 .header-secondary {
   margin-top: 0;
+  position: relative;
 }
 .header-secondary .container-wide {
   background-color: #F2F2F2;

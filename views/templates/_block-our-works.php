@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Url;
+
 /**
  * @var \yii\web\View $this
  */
@@ -10,7 +12,7 @@
     <div class="container">
         <div class="our-works__header section-header">
             <h2 class="heading-36">Наши работы</h2>
-            <a class="link-underline" href="works.html">Все работы</a>
+            <a class="link-underline" href="<?= Url::to('/works') ?>">Все работы</a>
         </div>
         <div class="our-works__content">
             <div class="our-works__list works-list">
@@ -42,7 +44,7 @@
         </div>
 
         <div class="our-works__btn-wrap">
-            <a class="btn btn-call" href="works.html">Смотреть все наши работы</a>
+            <a class="btn btn-call" href="<?= Url::to('/works') ?>">Смотреть все наши работы</a>
         </div>
     </div>
 </section>

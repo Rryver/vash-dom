@@ -76,6 +76,8 @@ class UserController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'login';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -98,9 +100,11 @@ class UserController extends Controller
      */
     public function actionLoginAdmin()
     {
-//        if (!Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
+        $this->layout = 'login';
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
 
         $model = new LoginAdminForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {

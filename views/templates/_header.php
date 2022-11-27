@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * @var \yii\web\View $this
+ * @var string $isSecondaryHeader Вариант отображения хедера
+ */
+
+if (!isset($isSecondaryHeader)) {
+    $isSecondaryHeader = false;
+}
+
 ?>
 
-<header class="header">
+<header class="header <?= $isSecondaryHeader ? "header-secondary" : "" ?>">
     <div class="container-wide">
         <div class="header__background-blur">
             <div class="container h-100">

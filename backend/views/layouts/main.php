@@ -37,9 +37,12 @@ AdminAsset::register($this);
 
 <main role="main" class="flex-shrink-0">
     <div class="container-fluid">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <div class="row" style="padding-top: 10px; background-color: #e9e9e9">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+        </div>
+
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>

@@ -8,7 +8,7 @@
 
 <section class="request">
     <div class="container">
-        <div class="request__wrap" style="background-image: url('images/request.jpg')">
+        <div class="request__wrap" style="background-image: url('/images/request.jpg')">
             <div class="request__title">
                 <h2 class="">Сделай заявку <br> прямо сейчас</h2>
             </div>

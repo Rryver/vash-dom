@@ -8,24 +8,25 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is class model for table '{{%product}}'
+ * This is class model for table '{{%kitchen}}'
  * @package app\models
  *
  * @property integer $id
  * @property string $title
  * @property string $image
  * @property integer $sort
+ * @property integer $visible
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Product extends GeneralModel
+class Kitchen extends GeneralModel
 {
     /**
      * @inheritDoc
      */
     public static function tableName()
     {
-        return '{{%product}}';
+        return '{{%kitchen}}';
     }
 
     /**
@@ -35,6 +36,11 @@ class Product extends GeneralModel
     {
         return [
             TimestampBehavior::class,
+            'sortable' => [
+                'class' => \kotchuprik\sortable\behaviors\Sortable::class,
+                'query' => self::find(),
+                'orderAttribute' => 'sort',
+            ],
         ];
     }
 
@@ -46,7 +52,7 @@ class Product extends GeneralModel
         return [
             [['title'], 'required'],
             [['title'], 'string', 'max' => 255],
-            [['sort', 'created_at', 'updated_at'], 'integer'],
+            [['sort', 'visible', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -60,6 +66,7 @@ class Product extends GeneralModel
             'title' => Yii::t('app', 'Title'),
             'image' => Yii::t('app', 'Image'),
             'sort' => Yii::t('app', 'Sort'),
+            'visible' => Yii::t('app', 'Visible'),
             'created_at' => Yii::t('app', 'Created at'),
             'updated_at' => Yii::t('app', 'Updated at'),
         ];

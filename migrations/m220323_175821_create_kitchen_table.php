@@ -3,20 +3,21 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%product}}`.
+ * Handles the creation of table `{{%kitchen}}`.
  */
-class m220323_175821_create_product_table extends Migration
+class m220323_175821_create_kitchen_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%product}}', [
+        $this->createTable('{{%kitchen}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255),
             'image' => $this->string(),
-            'sort' => $this->integer(),
+            'sort' => $this->integer()->unsigned()->defaultValue(0),
+            'visible' => $this->tinyInteger(1)->notNull()->defaultValue(1),
             'created_at' => $this->integer()->unsigned()->notNull()->defaultValue(0),
             'updated_at' => $this->integer()->unsigned()->notNull()->defaultValue(0),
         ]);

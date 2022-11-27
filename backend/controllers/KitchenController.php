@@ -4,21 +4,33 @@
 namespace app\backend\controllers;
 
 
-use app\models\Product;
-use app\models\search\ProductSearch;
+use app\models\Kitchen;
+use app\models\search\KitchenSearch;
 use app\backend\components\AdminController;
+use himiklab\sortablegrid\SortableGridAction;
 use Yii;
 use yii\web\NotFoundHttpException;
 
-class ProductController extends AdminController
+class KitchenController extends AdminController
 {
+    public function actions()
+    {
+        return [
+            'sorting' => [
+                'class' => \kotchuprik\sortable\actions\Sorting::className(),
+                'query' => Kitchen::find(),
+                'orderAttribute' => 'sort',
+        ],
+    ];
+}
+
     /**
      * Lists all Order models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProductSearch();
+        $searchModel = new KitchenSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +59,7 @@ class ProductController extends AdminController
      */
     public function actionCreate()
     {
-        $model = new Product();
+        $model = new Kitchen();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -100,12 +112,12 @@ class ProductController extends AdminController
      * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Product the loaded model
+     * @return Kitchen the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Kitchen::findOne($id)) !== null) {
             return $model;
         }
 

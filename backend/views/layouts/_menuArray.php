@@ -9,9 +9,9 @@ return [
         'active' => ($controllerId == 'default')
     ],
     [
-        'label' => 'Products',
-        'url' => '/admin/product',
-        'active' => ($controllerId == 'product')
+        'label' => 'Kitchen',
+        'url' => '/admin/kitchen',
+        'active' => ($controllerId == 'kitchen')
     ],
     [
         'label' => 'Dropdown',

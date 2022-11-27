@@ -1,12 +1,12 @@
 <?php
 
-use app\models\Product;
+use app\models\Kitchen;
 use kartik\file\FileInput;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Order */
+/* @var $model app\models\Kitchen */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'image')->widget(FileInput::classname(), [
+    <?= $form->field($model, 'image')->widget(FileInput::class, [
         'options' => [
             'accept' => 'image/*'
         ],

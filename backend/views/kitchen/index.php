@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -27,9 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'tableOptions' => [
             'class' => 'table table-striped table-bordered'
         ],
+        'rowOptions' => function ($model, $key, $index, $grid) {
+            return ['data-sortable-id' => $model->id];
+        },
         'columns' => [
             [
-                'class' => 'yii\grid\SerialColumn'
+                'class' => \kotchuprik\sortable\grid\Column::className(),
             ],
             'id',
             'title',
@@ -53,6 +57,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['width' => '50'],
                 'template' => '{delete}',
             ],
+        ],
+        'options' => [
+            'data' => [
+                'sortable-widget' => 1,
+                'sortable-url' => \yii\helpers\Url::toRoute(['sorting']),
+            ]
         ],
     ]); ?>
 
