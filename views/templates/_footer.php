@@ -17,10 +17,10 @@
             <a class="link-text link-phone" href="tel:+7 (921) 123-45-67">+7 (921) 123-45-67</a>
         </div>
         <div class="footer__text">
-            <a class="link-text link-email" href="email:example@emaple.ru">example@emaple.ru</a>
+            <a class="link-text link-email" href="mailto:example@emaple.ru">example@emaple.ru</a>
         </div>
         <div class="footer__text">
-            <a class="vk-link" href="vk.com" target="_blank">
+            <a class="vk-link" href="https://vk.com/dom86" target="_blank">
                 <!--                <img src="images/vk_small.svg" alt="vk" class="vk-icon">-->
                 <svg class="vk-icon" xmlns="http://www.w3.org/2000/svg">
                     <use xlink:href="#icon-vk"/>

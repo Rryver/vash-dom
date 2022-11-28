@@ -4,21 +4,18 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 /** @var yii\web\View $this */
-/** @var string $name */
-/** @var string $message */
-/** @var Exception $exception */
 
-$this->title = $name;
+$this->title = "Успех";
 
 ?>
 
-<div class="container">
-    <div class="site-error text-center">
+<div class="container m-t-40">
+    <div class="site-success text-center">
 
         <h1><?= Html::encode($this->title) ?></h1>
 
         <div class="m-t-20 m-b-50">
-            <?= nl2br(Html::encode($message)) ?>
+            Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.
         </div>
 
         <div>

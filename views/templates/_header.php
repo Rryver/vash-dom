@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Url;
+
 /**
  * @var \yii\web\View $this
  * @var string $isSecondaryHeader Вариант отображения хедера
@@ -27,7 +29,7 @@ if (!isset($isSecondaryHeader)) {
                         </div>
                         <ul class="main-menu__list">
                             <li class="main-menu__item">
-                                <a href="works.html" class="main-menu__link">Галерея</a>
+                                <a href="<?= Url::to('/works') ?>" class="main-menu__link">Галерея</a>
                             </li>
                             <li class="main-menu__item">
                                 <a href="about.html" class="main-menu__link">О нас</a>
@@ -41,7 +43,7 @@ if (!isset($isSecondaryHeader)) {
                         </ul>
                         <div class="header__btns header__btns_mobile">
                             <span class="header__city"><img class="map-icon" src="/images/icons/map-marker-svgrepo-com.svg" alt="">Череповец</span>
-                            <a class="vk-link" href="#">
+                            <a class="vk-link" href="https://vk.com/dom86" target="_blank">
                                 <svg class="vk-icon" xmlns="http://www.w3.org/2000/svg">
                                     <use xlink:href="#icon-vk"/>
                                 </svg>
@@ -51,7 +53,7 @@ if (!isset($isSecondaryHeader)) {
                     </div>
                     <div class="header__btns header__btns_pc">
                         <span class="header__city"><img class="map-icon" src="/images/icons/map-marker-svgrepo-com.svg" alt="">Череповец</span>
-                        <a class="vk-link" href="#">
+                        <a class="vk-link" href="https://vk.com/dom86" target="_blank">
                             <svg class="vk-icon" xmlns="http://www.w3.org/2000/svg">
                                 <use xlink:href="#icon-vk"/>
                             </svg>

@@ -5,10 +5,8 @@
 
 use app\assets\AppAsset;
 use app\widgets\Alert;
-use yii\bootstrap5\Breadcrumbs;
+use app\widgets\breadcrumbsCustom\BreadcrumbsCustom;
 use yii\bootstrap5\Html;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
 
 AppAsset::register($this);
 
@@ -31,9 +29,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
     <?= $this->render('/templates/_header', ['isSecondaryHeader' => true]) ?>
 
     <main class="content">
-        <?php if (!empty($this->params['breadcrumbs'])): ?>
-            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-        <?php endif ?>
+        <?= BreadcrumbsCustom::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []]) ?>
 
         <?= Alert::widget() ?>
 
@@ -44,6 +40,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 </div>
 
 <?= $this->render('/templates/_footer') ?>
+
+<?= $this->render('/templates/modals/_modal-message-form') ?>
+<?= $this->render('/templates/modals/_modal-contact-promo-form') ?>
 
 <?= $this->render('/templates/_svg') ?>
 

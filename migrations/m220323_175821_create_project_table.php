@@ -3,16 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%kitchen}}`.
+ * Handles the creation of table `{{%project}}`.
  */
-class m220323_175821_create_kitchen_table extends Migration
+class m220323_175821_create_project_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%kitchen}}', [
+        $this->createTable('{{%project}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255),
             'image' => $this->string(),
@@ -28,6 +28,6 @@ class m220323_175821_create_kitchen_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%product}}');
+        $this->dropTable('{{%project}}');
     }
 }

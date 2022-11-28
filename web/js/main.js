@@ -100,6 +100,12 @@
         })
     }
 
+    function shield() {
+        $('.shield-start').focus(function () {
+            $('.shield').val(142);
+        });
+    }
+
     // Initializing all scripts
     $(document).ready(function () {
         mask();
@@ -111,5 +117,7 @@
         promoCardToggleInfo();
         promoCardOpenModalEvent();
         promoSliderOpenModalEvent();
+
+        shield();
     });
 })(jQuery);

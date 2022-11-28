@@ -39,6 +39,10 @@ AdminAsset::register($this);
     <div class="container-fluid">
         <div class="row" style="padding-top: 10px; background-color: #e9e9e9">
             <?= Breadcrumbs::widget([
+                'homeLink' => [
+                    'label' => 'Административная панель',
+                    'url' => '/admin/index',
+                ],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
         </div>

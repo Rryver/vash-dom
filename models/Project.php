@@ -8,7 +8,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is class model for table '{{%kitchen}}'
+ * This is class model for table '{{%project}}'
  * @package app\models
  *
  * @property integer $id
@@ -19,14 +19,14 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Kitchen extends GeneralModel
+class Project extends GeneralModel
 {
     /**
      * @inheritDoc
      */
     public static function tableName()
     {
-        return '{{%kitchen}}';
+        return '{{%project}}';
     }
 
     /**

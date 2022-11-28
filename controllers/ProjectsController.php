@@ -6,7 +6,7 @@ namespace app\controllers;
 
 use yii\web\Controller;
 
-class KitchenController extends Controller
+class ProjectsController extends Controller
 {
     public $layout = 'secondary';
 

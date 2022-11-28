@@ -1,12 +1,11 @@
 <?php
 
-use app\models\Kitchen;
 use kartik\file\FileInput;
-use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Kitchen */
+/* @var $model app\models\Project */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

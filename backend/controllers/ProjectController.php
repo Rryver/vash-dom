@@ -4,33 +4,32 @@
 namespace app\backend\controllers;
 
 
-use app\models\Kitchen;
-use app\models\search\KitchenSearch;
+use app\models\Project;
+use app\models\search\ProjectSearch;
 use app\backend\components\AdminController;
-use himiklab\sortablegrid\SortableGridAction;
 use Yii;
 use yii\web\NotFoundHttpException;
 
-class KitchenController extends AdminController
+class ProjectController extends AdminController
 {
     public function actions()
     {
         return [
             'sorting' => [
                 'class' => \kotchuprik\sortable\actions\Sorting::className(),
-                'query' => Kitchen::find(),
+                'query' => Project::find(),
                 'orderAttribute' => 'sort',
         ],
     ];
 }
 
     /**
-     * Lists all Order models.
+     * Lists all Project models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new KitchenSearch();
+        $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -40,7 +39,7 @@ class KitchenController extends AdminController
     }
 
     /**
-     * Displays a single Order model.
+     * Displays a single Project model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -53,13 +52,13 @@ class KitchenController extends AdminController
     }
 
     /**
-     * Creates a new Order model.
+     * Creates a new Project model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Kitchen();
+        $model = new Project();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -75,7 +74,7 @@ class KitchenController extends AdminController
     }
 
     /**
-     * Updates an existing Order model.
+     * Updates an existing Project model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -95,11 +94,13 @@ class KitchenController extends AdminController
     }
 
     /**
-     * Deletes an existing Order model.
+     * Deletes an existing Project model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {
@@ -109,15 +110,15 @@ class KitchenController extends AdminController
     }
 
     /**
-     * Finds the Order model based on its primary key value.
+     * Finds the Project model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Kitchen the loaded model
+     * @return Project the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Kitchen::findOne($id)) !== null) {
+        if (($model = Project::findOne($id)) !== null) {
             return $model;
         }
 

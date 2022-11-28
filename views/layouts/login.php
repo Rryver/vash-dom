@@ -6,10 +6,7 @@
 use app\assets\AppAsset;
 use app\widgets\Alert;
 use app\widgets\breadcrumbsCustom\BreadcrumbsCustom;
-use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
 
 AppAsset::register($this);
 
@@ -45,6 +42,9 @@ $this->registerCsrfMetaTags();
 </div>
 
 <?= $this->render('/templates/_footer') ?>
+
+<?= $this->render('/templates/modals/_modal-message-form') ?>
+<?= $this->render('/templates/modals/_modal-contact-promo-form') ?>
 
 <?= $this->render('/templates/_svg') ?>
 

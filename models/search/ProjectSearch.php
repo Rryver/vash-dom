@@ -4,11 +4,11 @@
 namespace app\models\search;
 
 
-use app\models\Kitchen;
+use app\models\Project;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class KitchenSearch extends Kitchen
+class ProjectSearch extends Project
 {
     /**
      * {@inheritdoc}

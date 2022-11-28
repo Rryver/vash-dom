@@ -1,13 +1,19 @@
 <?php
 
-use yii\widgets\Breadcrumbs ;
+use yii\bootstrap5\Breadcrumbs;
 
 /* @var $links array */
 
 ?>
 
-<div class="breadcrumbs-block m-t-10 m-b-10">
+<div class="breadcrumbs-block m-t-20 m-b-20">
     <div class="container">
-        <?= Breadcrumbs::widget(['links' => $links]); ?>
+        <?= Breadcrumbs::widget([
+            'homeLink' => [
+                'label' => 'Главная',
+                'url' => '/',
+            ],
+            'links' => $links
+        ]); ?>
     </div>
 </div>

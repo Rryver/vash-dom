@@ -7,7 +7,7 @@
 ?>
 
 
-<section class="works m-t-40" style="margin-top: 140px">
+<section class="works m-t-40">
     <div class="container">
         <div class="our-works__header section-header">
             <h2 class="heading-36">Наши работы</h2>
