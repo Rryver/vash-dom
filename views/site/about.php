@@ -2,17 +2,23 @@
 
 /** @var yii\web\View $this */
 
-use yii\helpers\Html;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'О нас';
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
+<section class="about-page m-t-40">
+    <div class="container">
+        <div class="about-page__header section-header">
+            <h2 class="">О нас</h2>
+        </div>
+        <div class="about-page__content m-t-30">
+            <p>
+                Салон мебели "Ваш дом" - динамично развивающаяся компания с собственным проивзодством.
+                Мы помогаем нашим клиента обставить свое жилье так, как они этого хотят. Окружить себя теми предметами,
+                которые будут полезны и удобны. Найти то, что будет поднимать настроение и задавать ритм Вашей
+                жизни. Сделайте это без лишних потерь – финансовых и временных.
+            </p>
 
-    <code><?= __FILE__ ?></code>
-</div>
+            <p>Для этой страницы будет текстовый редактор. Можно менять текст.</p>
+        </div>
+    </div>
+</section>

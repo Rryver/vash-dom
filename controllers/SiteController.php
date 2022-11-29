@@ -2,13 +2,10 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\filters\AccessControl;
+use app\models\Project;
+use app\models\Promo;
 use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -39,25 +36,19 @@ class SiteController extends Controller
     {
         $this->layout = 'main';
 
-        return $this->render('index');
+        $promos = Promo::findAll(['visible' => Promo::VISIBLE, 'show_in_slider' => Promo::VISIBLE]);
+        $projects = Project::find()->where(['visible' => Project::VISIBLE])->orderBy(['sort' => SORT_ASC])->limit(6)->all();
+        return $this->render('index', ['promos' => $promos, 'projects' => $projects]);
     }
 
     /**
-     * Displays contact page.
+     * Displays contacts page.
      *
      * @return Response|string
      */
-    public function actionContact()
+    public function actionContacts()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+        return $this->render('contacts');
     }
 
     /**
@@ -68,6 +59,17 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    /**
+     * Displays promo page.
+     *
+     * @return string
+     */
+    public function actionPromo()
+    {
+        $promos = Promo::findAll(['visible' => Promo::VISIBLE]);
+        return $this->render('promo', ['promos' => $promos]);
     }
 
 }

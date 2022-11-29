@@ -12,7 +12,7 @@ $this->title = $name;
 
 ?>
 
-<div class="container">
+<div class="container m-t-40">
     <div class="site-error text-center">
 
         <h1><?= Html::encode($this->title) ?></h1>

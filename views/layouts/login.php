@@ -44,7 +44,7 @@ $this->registerCsrfMetaTags();
 <?= $this->render('/templates/_footer') ?>
 
 <?= $this->render('/templates/modals/_modal-message-form') ?>
-<?= $this->render('/templates/modals/_modal-contact-promo-form') ?>
+<?= $this->render('/templates/modals/_modal-message-promo-form') ?>
 
 <?= $this->render('/templates/_svg') ?>
 

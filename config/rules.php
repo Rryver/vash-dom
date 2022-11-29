@@ -5,6 +5,10 @@ return [
     'api/v1/<controller:\w+>/<action:\w+>' => 'api-v1/<controller>/<action>',
 
     'works' => 'projects/works',
+    'promo' => 'site/promo',
+    'about' => 'site/about',
+    'contacts' => 'site/contacts',
+
     'messageSuccess' => 'message/success',
     'messageError' => 'message/error',
 

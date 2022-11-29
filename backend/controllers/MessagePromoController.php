@@ -5,9 +5,9 @@ namespace app\backend\controllers;
 
 
 use app\backend\components\AdminController;
-use app\models\search\MessageSearch;
+use app\models\search\MessagePromoSearch;
 
-class MessageController extends AdminController
+class MessagePromoController extends AdminController
 {
     /**
      * Lists all Message models.
@@ -15,7 +15,7 @@ class MessageController extends AdminController
      */
     public function actionIndex()
     {
-        $searchModel = new MessageSearch();
+        $searchModel = new MessagePromoSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [

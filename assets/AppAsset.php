@@ -31,7 +31,7 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-        'vendor/jquery/jquery-3.3.1.min.js',
+        //'vendor/jquery/jquery-3.3.1.min.js',
         'vendor/bootstrap-5.0.2-dist/js/bootstrap.min.js',
         'vendor/fancybox/jquery.fancybox.min.js',
         'vendor/slick/slick.min.js',

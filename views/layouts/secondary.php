@@ -19,6 +19,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="/images/favicon.ico">
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
@@ -42,7 +44,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 <?= $this->render('/templates/_footer') ?>
 
 <?= $this->render('/templates/modals/_modal-message-form') ?>
-<?= $this->render('/templates/modals/_modal-contact-promo-form') ?>
+<?= $this->render('/templates/modals/_modal-message-promo-form') ?>
 
 <?= $this->render('/templates/_svg') ?>
 

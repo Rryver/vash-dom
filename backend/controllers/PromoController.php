@@ -4,32 +4,33 @@
 namespace app\backend\controllers;
 
 
-use app\models\Project;
-use app\models\search\ProjectSearch;
 use app\backend\components\AdminController;
+use app\models\Promo;
+use app\models\search\PromoSearch;
+use kotchuprik\sortable\actions\Sorting;
 use Yii;
 use yii\web\NotFoundHttpException;
 
-class ProjectController extends AdminController
+class PromoController extends AdminController
 {
     public function actions()
     {
         return [
             'sorting' => [
-                'class' => \kotchuprik\sortable\actions\Sorting::className(),
-                'query' => Project::find(),
+                'class' => Sorting::className(),
+                'query' => Promo::find(),
                 'orderAttribute' => 'sort',
-        ],
-    ];
-}
+            ],
+        ];
+    }
 
     /**
-     * Lists all Project models.
+     * Lists all Promo models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProjectSearch();
+        $searchModel = new PromoSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -39,7 +40,7 @@ class ProjectController extends AdminController
     }
 
     /**
-     * Displays a single Project model.
+     * Displays a single Promo model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -52,13 +53,13 @@ class ProjectController extends AdminController
     }
 
     /**
-     * Creates a new Project model.
+     * Creates a new Promo model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Project();
+        $model = new Promo();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -74,7 +75,7 @@ class ProjectController extends AdminController
     }
 
     /**
-     * Updates an existing Project model.
+     * Updates an existing Promo model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -94,7 +95,7 @@ class ProjectController extends AdminController
     }
 
     /**
-     * Deletes an existing Project model.
+     * Deletes an existing Promo model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -110,15 +111,15 @@ class ProjectController extends AdminController
     }
 
     /**
-     * Finds the Project model based on its primary key value.
+     * Finds the Promo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Project the loaded model
+     * @return Promo the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Project::findOne($id)) !== null) {
+        if (($model = Promo::findOne($id)) !== null) {
             return $model;
         }
 

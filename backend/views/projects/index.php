@@ -4,9 +4,11 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\ */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/**
+ * @var yii\web\View $this
+ * @var app\models\search\ProjectsSearch $searchModel
+ * @var yii\data\ActiveDataProvider $dataProvider
+ */
 
 $this->title = Yii::t('app', 'Наши работы');
 $this->params['breadcrumbs'][] = $this->title;
@@ -37,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'id',
             'title',
-            'created_at',
-            'updated_at',
+            'created_at:datetime',
+            'updated_at:datetime',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'header'=>'Просм.',

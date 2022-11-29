@@ -3,8 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Project */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Project $model
+ */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Наши работы'), 'url' => ['index']];

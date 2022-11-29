@@ -2,13 +2,15 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Order */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Promo $model
+ */
 
-$this->title = Yii::t('app', 'Update Product: {name}', [
+$this->title = Yii::t('app', 'Update Promo: {name}', [
     'name' => $model->title,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Procuts'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Акции'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>

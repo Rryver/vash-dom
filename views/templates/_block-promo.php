@@ -2,42 +2,37 @@
 
 /**
  * @var \yii\web\View $this
+ * @var \app\models\Promo[] $promos
  */
+
+use yii\helpers\Url;
 
 ?>
 
-
+<?php if ($promos) {?>
 <section class="promo">
     <div class="container">
         <div class="promo__header section-header">
             <h2 class="heading-36">Акции</h2>
-            <a class="link-underline" href="#">Все акции</a>
+            <a class="link-underline" href="<?= Url::to('/promo') ?>">Все акции</a>
         </div>
         <div class="promo__content">
             <div class="promo__slider promo-slider">
                 <div class="promo-slider__slides">
-                    <div class="promo-slider__slide promo-slide">
-                        <div class="promo-slide__picture">
-                            <img class="promo-slide__image" src="images/promo_1.png" alt="promo">
-                            <span class="promo-slide__tag">Подарок</span>
+
+                    <?php foreach ($promos as $promo) { ?>
+                        <div class="promo-slider__slide promo-slide">
+                            <div class="promo-slide__picture">
+                                <img class="promo-slide__image" src="images/promo_1.png" alt="promo">
+                                <span class="promo-slide__tag">Подарок</span>
+                            </div>
+                            <div class="promo-slide__info">
+                                <h3 class="promo-slide__title"><?= $promo->title ?></h3>
+                                <div class="promo-slide__text"><?= $promo->description ?></div>
+                            </div>
+                            <button class="promo-slide__link btn-call btn-modal-promo-request" data-bs-toggle="modal" data-bs-target="#modalPromo" data-promo-id="<?= $promo->id ?>">Участвовать в акции</button>
                         </div>
-                        <div class="promo-slide__info">
-                            <h3 class="promo-slide__title"><span class="text-color-red">Вытяжка</span> в подарок!</h3>
-                            <div class="promo-slide__text">Закажите кухню у нас до конца августа и получите вытяжку в подарок.</div>
-                        </div>
-                        <button class="promo-slide__link btn-call" data-bs-toggle="modal" data-bs-target="#modalPromo">Участвовать в акции</button>
-                    </div>
-                    <div class="promo-slider__slide promo-slide">
-                        <div class="promo-slide__picture">
-                            <img class="promo-slide__image" src="images/promo_2.jpg" alt="promo">
-                            <span class="promo-slide__tag">Акция</span>
-                        </div>
-                        <div class="promo-slide__info">
-                            <h3 class="promo-slide__title"><span class="text-color-red">Скидка</span> на все в течение месяца!</h3>
-                            <div class="promo-slide__text">Закажите кухню у нас до конца августа и получите вытяжку в подарок.</div>
-                        </div>
-                        <button class="promo-slide__link btn-call" data-bs-toggle="modal" data-bs-target="#modalPromo">Участвовать в акции</button>
-                    </div>
+                    <?php } ?>
                 </div>
                 <div class="promo-slider__controls slider-controls">
                     <div class="slider-controls__btns-switch btn-switch prev">
@@ -63,3 +58,4 @@
         </div>
     </div>
 </section>
+<?php } ?>

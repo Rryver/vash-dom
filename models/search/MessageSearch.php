@@ -4,11 +4,11 @@
 namespace app\models\search;
 
 
-use app\models\Project;
+use app\models\Message;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class ProjectSearch extends Project
+class MessageSearch extends Message
 {
     /**
      * {@inheritdoc}
@@ -16,8 +16,7 @@ class ProjectSearch extends Project
     public function rules()
     {
         return [
-            [['id', 'visible'], 'integer'],
-            [['title'], 'safe'],
+            [['id'], 'integer'],
         ];
     }
 
@@ -45,7 +44,7 @@ class ProjectSearch extends Project
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['sort' => SORT_ASC]],
+            'sort' => ['defaultOrder' => ['id' => SORT_DESC]],
         ]);
 
         $this->load($params);
@@ -62,8 +61,6 @@ class ProjectSearch extends Project
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
-
-        $query->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;
     }

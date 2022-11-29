@@ -73,12 +73,14 @@
     }
 
     function promoCardOpenModalEvent () {
-        $(".promo-card .promo-card__info .promo-card__btn").on("click", function (e) {
+        $(".btn-modal-promo-request").on("click", function (e) {
             e.preventDefault();
 
             let promoTitle = $(this).parent().find(".promo-card__title").html();
+            let promoId = $(this).attr("data-promo-id");
 
             $("#modalPromo #promoModalLabel").html(promoTitle);
+            $("#modalPromo #input_promo_id").val(promoId);
         })
     }
 

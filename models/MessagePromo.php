@@ -3,10 +3,11 @@
 
 namespace app\models;
 
+use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is class model for table '{{%contact_promo}}'
+ * This is class model for table '{{%message_promo}}'
  * @package app\models
  *
  * @property int $id
@@ -20,13 +21,13 @@ use yii\behaviors\TimestampBehavior;
  * @property int $created_at
  * @property int $updated_at
  */
-class ContactPromo extends GeneralModel
+class MessagePromo extends GeneralModel
 {
-    public int $check;
+    public $check;
 
     public static function tableName()
     {
-        return '{{%contact_promo}}';
+        return '{{%message_promo}}';
     }
 
     public function behaviors()
@@ -40,11 +41,13 @@ class ContactPromo extends GeneralModel
     {
         return [
             [['phone'], 'required'],
+            [['phone'], 'match', 'pattern' => Yii::$app->params['phone-regex']],
             [['email'], 'email'],
             [['name'], 'string', 'max' => 255],
-            [['message'], 'string'],
-            [['isNew'], 'int'],
+            [['message', 'promo_name_when_created_at'], 'string'],
+            [['isNew', 'promo_id'], 'integer'],
 
+            [['check'], 'required'],
             [['check'], 'in', 'range' => ['142']],
         ];
     }
@@ -60,6 +63,7 @@ class ContactPromo extends GeneralModel
             'isNew' => 'Новое?',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
+            'promo_id' => 'Акция'
         ];
     }
 }

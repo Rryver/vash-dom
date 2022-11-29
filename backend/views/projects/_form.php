@@ -1,12 +1,16 @@
 <?php
 
+use app\models\GeneralModel;
 use kartik\file\FileInput;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Project */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Project $model
+ * @var yii\widgets\ActiveForm $form
+ */
+
 ?>
 
 <div class="order-form">
@@ -19,6 +23,7 @@ use yii\helpers\Html;
             'accept' => 'image/*'
         ],
     ]); ?>
+    <?= $form->field($model, 'visible')->dropDownList(GeneralModel::getYesNoOptions()) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

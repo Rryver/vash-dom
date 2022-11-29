@@ -2,6 +2,8 @@
 
 /**
  * @var yii\web\View $this
+ * @var \app\models\Promo[] $promos
+ * @var \app\models\Project[] $projects
  */
 
 $this->title = 'Ваш дом - салон мебели | Кухни на заказ в Вологодской области';
@@ -41,8 +43,8 @@ $this->title = 'Ваш дом - салон мебели | Кухни на зак
     </div>
 </section>
 
-<?= $this->render('/templates/_block-promo') ?>
+<?= $this->render('/templates/_block-promo', ['promos' => $promos]) ?>
 
 <?= $this->render('/templates/_block-steps') ?>
 
-<?= $this->render('/templates/_block-our-works') ?>
+<?= $this->render('/templates/_block-our-works', ['projects' => $projects]) ?>

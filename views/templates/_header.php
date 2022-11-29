@@ -32,13 +32,13 @@ if (!isset($isSecondaryHeader)) {
                                 <a href="<?= Url::to('/works') ?>" class="main-menu__link">Галерея</a>
                             </li>
                             <li class="main-menu__item">
-                                <a href="about.html" class="main-menu__link">О нас</a>
+                                <a href="<?= Url::to('/about') ?>" class="main-menu__link">О нас</a>
                             </li>
                             <li class="main-menu__item">
-                                <a href="promo.html" class="main-menu__link">Акции</a>
+                                <a href="<?= Url::to('/promo') ?>" class="main-menu__link">Акции</a>
                             </li>
                             <li class="main-menu__item">
-                                <a href="contacts.html" class="main-menu__link">Контакты</a>
+                                <a href="<?= Url::to('/contacts') ?>" class="main-menu__link">Контакты</a>
                             </li>
                         </ul>
                         <div class="header__btns header__btns_mobile">
