@@ -33,8 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'contentOptions' => ['style' => 'width:200px; height: auto;'],
+                'value' => function($model) {
+                    return Html::img($model->image);
+                }
+            ],
+            'visible:boolean',
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
 

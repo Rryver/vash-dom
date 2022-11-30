@@ -21,7 +21,7 @@ $this->title = 'Акции';
                 <div class="promo-all__list promo-list">
 
                     <?php foreach ($promos as $promo) { ?>
-                        <div class="promo-list__card promo-card col-lg-4 col-md-6 col-sm-12 col-12" style="background-image: url('images/promo_1.png')">
+                        <div class="promo-list__card promo-card col-lg-4 col-md-6 col-sm-12 col-12" style="background-image: url('<?= $promo->image ?>')">
                             <div class="promo-card__content promo-card__preview">
                                 <div class="promo-card__title"><?= $promo->title ?></div>
                                 <button class="promo-card__btn btn btn-text">Подробнее</button>

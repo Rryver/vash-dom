@@ -24,18 +24,23 @@ return [
         'active' => ($controllerId == 'promo')
     ],
     [
-        'label' => 'Dropdown',
-        'items' => [
-            [
-                'label' => 'Products',
-                'url' => '/admin/product',
-                'active' => ($controllerId == 'default')
-            ],
-            [
-                'label' => 'Products',
-                'url' => '/admin/product',
-//        'active' => ($controllerId = 'default')
-            ],
-        ]
+        'label' => 'Главный слайдер',
+        'url' => '/admin/main-slide',
+        'active' => ($controllerId == 'main-slide')
     ],
+//    [
+//        'label' => 'Dropdown',
+//        'items' => [
+//            [
+//                'label' => 'Products',
+//                'url' => '/admin/product',
+//                'active' => ($controllerId == 'default')
+//            ],
+//            [
+//                'label' => 'Products',
+//                'url' => '/admin/product',
+////        'active' => ($controllerId = 'default')
+//            ],
+//        ]
+//    ],
 ];

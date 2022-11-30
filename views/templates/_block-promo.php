@@ -23,7 +23,7 @@ use yii\helpers\Url;
                     <?php foreach ($promos as $promo) { ?>
                         <div class="promo-slider__slide promo-slide">
                             <div class="promo-slide__picture">
-                                <img class="promo-slide__image" src="images/promo_1.png" alt="promo">
+                                <img class="promo-slide__image" src="<?= $promo->image ?>" alt="promo">
                                 <span class="promo-slide__tag">Подарок</span>
                             </div>
                             <div class="promo-slide__info">

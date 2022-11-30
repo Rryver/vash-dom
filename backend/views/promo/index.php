@@ -40,6 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description',
+            [
+                'attribute' => 'image',
+                'format' => 'raw',
+                'contentOptions' => ['style' => 'width:200px; height: auto;'],
+                'value' => function($model) {
+                    return Html::img($model->image);
+                }
+            ],
             'show_in_slider:boolean',
             'visible:boolean',
             'created_at:datetime',

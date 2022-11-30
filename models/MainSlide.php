@@ -9,20 +9,18 @@ use yii\behaviors\TimestampBehavior;
 use yii\web\UploadedFile;
 
 /**
- * This is class model for table '{{%promo}}'
+ * This is class model for table '{{%main_slide}}'
  * @package app\models
  *
  * @property integer $id
  * @property string $title
- * @property string $description
  * @property string $image
- * @property integer $visible
- * @property integer $show_in_slider
  * @property integer $sort
+ * @property integer $visible
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Promo extends GeneralModel
+class MainSlide extends GeneralModel
 {
     public $imageFile;
 
@@ -31,7 +29,7 @@ class Promo extends GeneralModel
      */
     public static function tableName()
     {
-        return '{{%promo}}';
+        return '{{%main_slide}}';
     }
 
     /**
@@ -57,8 +55,8 @@ class Promo extends GeneralModel
         return [
             [['title'], 'required'],
             [['title'], 'string', 'max' => 255],
-            [['description', 'image'], 'string'],
-            [['sort', 'visible', 'show_in_slider', 'created_at', 'updated_at'], 'integer'],
+            [['image'], 'string'],
+            [['sort', 'visible', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -70,9 +68,7 @@ class Promo extends GeneralModel
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
-            'description' => Yii::t('app', 'Description'),
             'image' => Yii::t('app', 'Image'),
-            'show_in_slider' => Yii::t('app', 'Show in slider'),
             'sort' => Yii::t('app', 'Sort'),
             'visible' => Yii::t('app', 'Visible'),
             'created_at' => Yii::t('app', 'Created at'),

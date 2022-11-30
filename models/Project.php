@@ -6,6 +6,7 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\web\UploadedFile;
 
 /**
  * This is class model for table '{{%project}}'
@@ -21,6 +22,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Project extends GeneralModel
 {
+    public $imageFile;
+
     /**
      * @inheritDoc
      */
@@ -52,6 +55,7 @@ class Project extends GeneralModel
         return [
             [['title'], 'required'],
             [['title'], 'string', 'max' => 255],
+            [['image'], 'string'],
             [['sort', 'visible', 'created_at', 'updated_at'], 'integer'],
         ];
     }
@@ -70,6 +74,22 @@ class Project extends GeneralModel
             'created_at' => Yii::t('app', 'Created at'),
             'updated_at' => Yii::t('app', 'Updated at'),
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        $imageFile = UploadedFile::getInstance($this, 'imageFile');
+        if (is_object($imageFile)) {
+            $path = 'uploads/' . $imageFile->baseName . '.' . $imageFile->extension;
+            if ($imageFile->saveAs($path)) {
+                $this->image = "/" . $path;
+            }
+        } else if (!$imageFile) {
+            unset($this->image);
+            $this->image = null;
+        }
+
+        return parent::beforeSave($insert);
     }
 
 }

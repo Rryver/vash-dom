@@ -38,3 +38,4 @@ tests/_support/_generated
 /web/uploads
 /web/robots.txt
 /views/templates/_metrics.php
+/config/db.php

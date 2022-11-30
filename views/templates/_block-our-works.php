@@ -19,8 +19,8 @@ use yii\helpers\Url;
         <div class="our-works__content">
             <div class="our-works__list works-list">
                 <?php foreach ($projects as $project) { ?>
-                    <a class="works-list__card works-card col-lg-4 col-sm-6 col-12" href="/images/our-works/our-works_1.jpg" data-fancybox="our-works">
-                        <img class="works-card__img" src="/images/our-works/our-works_1.jpg">
+                    <a class="works-list__card works-card col-lg-4 col-sm-6 col-12" href="<?= $project->image ?>" data-fancybox="our-works">
+                        <img class="works-card__img" src="<?= $project->image ?>">
                         <div class="works-card__title"><?= $project->title ?></div>
                     </a>
                 <?php } ?>

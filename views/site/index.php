@@ -4,12 +4,13 @@
  * @var yii\web\View $this
  * @var \app\models\Promo[] $promos
  * @var \app\models\Project[] $projects
+ * @var \app\models\MainSlide[] $mainSlides
  */
 
 $this->title = 'Ваш дом - салон мебели | Кухни на заказ в Вологодской области';
 ?>
 
-<?= $this->render('partials/_slider-main') ?>
+<?= $this->render('partials/_slider-main', ['mainSlides' => $mainSlides]) ?>
 
 
 <section class="about">
