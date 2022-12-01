@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
-$this->title = Yii::t('app', 'Заявки на акции');
+$this->title = 'Заявки на акции';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">

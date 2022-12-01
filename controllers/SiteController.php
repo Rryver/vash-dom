@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\MainSlide;
 use app\models\Project;
 use app\models\Promo;
+use app\models\Step;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -40,7 +41,13 @@ class SiteController extends Controller
         $promos = Promo::findAll(['visible' => Promo::VISIBLE, 'show_in_slider' => Promo::VISIBLE]);
         $projects = Project::find()->where(['visible' => Project::VISIBLE])->orderBy(['sort' => SORT_ASC])->limit(6)->all();
         $mainSlides = MainSlide::find()->where(['visible' => MainSlide::VISIBLE])->orderBy(['sort' => SORT_ASC])->all();
-        return $this->render('index', ['promos' => $promos, 'projects' => $projects, 'mainSlides' => $mainSlides]);
+        $steps = Step::find()->where(['visible' => Step::VISIBLE])->orderBy(['sort' => SORT_ASC])->all();
+        return $this->render('index', [
+            'promos' => $promos,
+            'projects' => $projects,
+            'mainSlides' => $mainSlides,
+            'steps' => $steps
+        ]);
     }
 
     /**

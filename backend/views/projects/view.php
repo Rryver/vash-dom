@@ -36,9 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'image',
                 'format' => 'raw',
-                'contentOptions' => ['style' => 'width:200px; height: auto;'],
                 'value' => function($model) {
-                    return Html::img($model->image);
+                    return Html::img($model->image, ['style' => 'width:300px;']);
                 }
             ],
             'visible:boolean',

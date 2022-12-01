@@ -5,6 +5,7 @@
  * @var \app\models\Promo[] $promos
  * @var \app\models\Project[] $projects
  * @var \app\models\MainSlide[] $mainSlides
+ * @var \app\models\Step[] $steps
  */
 
 $this->title = 'Ваш дом - салон мебели | Кухни на заказ в Вологодской области';
@@ -46,6 +47,6 @@ $this->title = 'Ваш дом - салон мебели | Кухни на зак
 
 <?= $this->render('/templates/_block-promo', ['promos' => $promos]) ?>
 
-<?= $this->render('/templates/_block-steps') ?>
+<?= $this->render('/templates/_block-steps', ['steps' => $steps]) ?>
 
 <?= $this->render('/templates/_block-our-works', ['projects' => $projects]) ?>

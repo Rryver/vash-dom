@@ -32,6 +32,11 @@ return [
         'active' => ($controllerId == 'main-slide')
     ],
     [
+        'label' => 'Как мы работаем',
+        'url' => '/admin/step',
+        'active' => ($controllerId == 'step')
+    ],
+    [
         'label' => 'Информация',
         'url' => '/admin/settings/settings-content',
         'active' => ($controllerId == 'settings' && $actionId == SettingsContentForm::getActionName())

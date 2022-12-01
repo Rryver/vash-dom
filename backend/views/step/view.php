@@ -5,11 +5,11 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Project $model
+ * @var app\models\Step $model
  */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Главный слайдер', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Как мы работаем', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Вы точно хотите удалить этот элемент?',
+                'confirm' => Yii::t('app', 'Вы точно хотите удалить этот элемент?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
+            'description',
             [
                 'attribute' => 'image',
                 'format' => 'raw',
