@@ -17,6 +17,9 @@ $config = [
         'admin' => [
             'class' => 'app\backend\AdminModule',
         ],
+//        'settings' => [
+//            'class' => 'yii2mod\settings\Module',
+//        ],
     ],
     'components' => [
         'request' => [
@@ -53,6 +56,26 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => file_exists(__DIR__. '/' . 'rules.php') ? require_once(__DIR__ . '/' . 'rules.php') : [],
+        ],
+        'settings' => [
+            'class' => 'yii2mod\settings\components\Settings',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app'       => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
+                ],
+                'yii2mod.settings' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/settings/messages',
+                ],
+            ],
         ],
     ],
     'params' => $params,

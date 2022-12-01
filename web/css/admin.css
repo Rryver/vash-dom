@@ -1,0 +1,8 @@
+td img {
+    width: 100%;
+    height: auto;
+}
+
+table.detail-view th {
+    width: 30%;
+}

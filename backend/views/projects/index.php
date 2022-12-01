@@ -37,16 +37,19 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => \kotchuprik\sortable\grid\Column::className(),
             ],
-            'id',
-            'title',
             [
                 'attribute' => 'image',
                 'format' => 'raw',
-                'contentOptions' => ['style' => 'width:200px; height: auto;'],
+                'contentOptions' => ['style' => 'width:300px;'],
                 'value' => function($model) {
                     return Html::img($model->image);
                 }
             ],
+            [
+                'attribute' => 'id',
+                'filter' => false,
+            ],
+            'title',
             'visible:boolean',
             'created_at:datetime',
             'updated_at:datetime',

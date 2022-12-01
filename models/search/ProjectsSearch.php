@@ -63,7 +63,8 @@ class ProjectsSearch extends Project
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'visible', $this->visible]);
 
         return $dataProvider;
     }

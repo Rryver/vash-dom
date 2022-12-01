@@ -12,6 +12,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
+        "@yii"   => '@app/vendor',
     ],
     'components' => [
         'cache' => [
@@ -28,13 +29,14 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
     'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
+        // Миграции одного из расширений
+        'migrate-module-settings' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => '@yii/yii2mod/yii2-settings/migrations',
+            'migrationTable' => 'migration_settings',
         ],
     ],
-    */
 ];
 
 if (YII_ENV_DEV) {

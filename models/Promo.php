@@ -68,15 +68,15 @@ class Promo extends GeneralModel
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'description' => Yii::t('app', 'Description'),
-            'image' => Yii::t('app', 'Image'),
-            'show_in_slider' => Yii::t('app', 'Show in slider'),
-            'sort' => Yii::t('app', 'Sort'),
-            'visible' => Yii::t('app', 'Visible'),
-            'created_at' => Yii::t('app', 'Created at'),
-            'updated_at' => Yii::t('app', 'Updated at'),
+            'id' => 'ID',
+            'title' => 'Заголовок',
+            'description' => 'Описание',
+            'image' => 'Изображение',
+            'sort' => 'Позиция',
+            'visible' => 'Видимость',
+            'show_in_slider' => 'Показывать в слайдере',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 

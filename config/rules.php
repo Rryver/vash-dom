@@ -13,7 +13,7 @@ return [
     'messageError' => 'message/error',
 
     /* ADMIN */
-    'admin/index' => 'admin/contacts',
+    'admin/index' => 'admin/message',
 
     'admin/<controller:\w+>/<id:\d+>' => 'admin/<controller>/<view>',
     'admin/<controller:\w+>/<action:\w+>/<id:\d+>' => 'admin/<controller>/<action>',

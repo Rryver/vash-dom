@@ -2,7 +2,6 @@
 
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
-use yii\helpers\Html;
 
 ?>
 
@@ -35,17 +34,7 @@ use yii\helpers\Html;
         'options' => [
             'class' => 'navbar-nav',
         ],
-
-        'items' => [
-            '<li class="nav-item">'
-            . Html::beginForm(['/user/logout'], 'post', ['class' => 'form-inline'])
-            . Html::submitButton(
-                'Выйти',
-                ['class' => 'btn nav-link logout']
-            )
-            . Html::endForm()
-            . '</li>',
-        ],
+        'items' => require(__DIR__ . '/' . '_menuArray-right.php'),
     ]);
 
     NavBar::end();

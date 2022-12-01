@@ -1,6 +1,9 @@
 <?php
 
+use app\backend\models\settings\SettingsContentForm;
+
 $controllerId = Yii::$app->controller->id;
+$actionId = Yii::$app->controller->action->id;
 
 return [
     [
@@ -28,19 +31,9 @@ return [
         'url' => '/admin/main-slide',
         'active' => ($controllerId == 'main-slide')
     ],
-//    [
-//        'label' => 'Dropdown',
-//        'items' => [
-//            [
-//                'label' => 'Products',
-//                'url' => '/admin/product',
-//                'active' => ($controllerId == 'default')
-//            ],
-//            [
-//                'label' => 'Products',
-//                'url' => '/admin/product',
-////        'active' => ($controllerId = 'default')
-//            ],
-//        ]
-//    ],
+    [
+        'label' => 'Информация',
+        'url' => '/admin/settings/settings-content',
+        'active' => ($controllerId == 'settings' && $actionId == SettingsContentForm::getActionName())
+    ],
 ];
