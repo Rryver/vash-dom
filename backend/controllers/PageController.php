@@ -5,35 +5,20 @@ namespace app\backend\controllers;
 
 
 use app\backend\components\AdminController;
-use app\models\Promo;
-use app\models\search\PromoSearch;
-use kotchuprik\sortable\actions\Sorting;
+use app\models\Page;
+use app\models\search\PageSearch;
 use Yii;
-use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
-use yii\web\Response;
-use function Symfony\Component\String\s;
 
-class PromoController extends AdminController
+class PageController extends AdminController
 {
-    public function actions()
-    {
-        return [
-            'sorting' => [
-                'class' => Sorting::className(),
-                'query' => Promo::find(),
-                'orderAttribute' => 'sort',
-            ],
-        ];
-    }
-
     /**
-     * Lists all Promo models.
+     * Lists all Page models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PromoSearch();
+        $searchModel = new PageSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -43,7 +28,7 @@ class PromoController extends AdminController
     }
 
     /**
-     * Displays a single Promo model.
+     * Displays a single Page model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -56,13 +41,13 @@ class PromoController extends AdminController
     }
 
     /**
-     * Creates a new Promo model.
+     * Creates a new Page model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Promo();
+        $model = new Page();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -78,7 +63,7 @@ class PromoController extends AdminController
     }
 
     /**
-     * Updates an existing Promo model.
+     * Updates an existing Page model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -89,11 +74,8 @@ class PromoController extends AdminController
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
-        $model->imageFile = $model->image;
 
         return $this->render('update', [
             'model' => $model,
@@ -101,7 +83,7 @@ class PromoController extends AdminController
     }
 
     /**
-     * Deletes an existing Promo model.
+     * Deletes an existing Page model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -117,31 +99,18 @@ class PromoController extends AdminController
     }
 
     /**
-     * Finds the Promo model based on its primary key value.
+     * Finds the Page model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Promo the loaded model
+     * @return Page the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Promo::findOne($id)) !== null) {
+        if (($model = Page::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-    }
-
-    public function actionDeleteImage()
-    {
-        Yii::$app->response->format = Response::FORMAT_JSON;
-
-        $id = Yii::$app->request->post('key');
-
-        $model = $this->findModel($id);
-
-        $model->deleteImage();
-
-        return;
     }
 }

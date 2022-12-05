@@ -45,4 +45,12 @@ class SettingsConfigurationForm extends Model implements SettingsFormInterface
     {
         return "settings-configurations";
     }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getSection(): string
+    {
+        return "SettingsConfigurationForm";
+    }
 }

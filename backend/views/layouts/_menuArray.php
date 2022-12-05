@@ -37,6 +37,11 @@ return [
         'active' => ($controllerId == 'step')
     ],
     [
+        'label' => 'Страницы',
+        'url' => '/admin/page',
+        'active' => ($controllerId == 'page')
+    ],
+    [
         'label' => 'Информация',
         'url' => '/admin/settings/settings-content',
         'active' => ($controllerId == 'settings' && $actionId == SettingsContentForm::getActionName())

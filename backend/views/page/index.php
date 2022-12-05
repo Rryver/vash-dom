@@ -2,15 +2,16 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /**
  * @var yii\web\View $this
- * @var app\models\search\PromoSearch $searchModel
+ * @var app\models\search\ProjectsSearch $searchModel
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
-$this->title = Yii::t('app', 'Акции');
+$this->title = Yii::t('app', 'Страницы');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Promo'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -30,29 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'tableOptions' => [
             'class' => 'table table-striped table-bordered'
         ],
-        'rowOptions' => function ($model, $key, $index, $grid) {
-            return ['data-sortable-id' => $model->id];
-        },
         'columns' => [
-            [
-                'class' => \kotchuprik\sortable\grid\Column::className(),
-            ],
-            [
-                'attribute' => 'image',
-                'format' => 'raw',
-                'contentOptions' => ['style' => 'width:300px;'],
-                'value' => function($model) {
-                    return Html::img($model->image);
-                }
-            ],
             [
                 'attribute' => 'id',
                 'filter' => false,
             ],
             'title',
-            'description',
-            'tag',
-            'show_in_slider:boolean',
+            [
+                'attribute' => 'slug',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a('/page/' . $model->slug, Url::to('/page/' . $model->slug));
+                },
+            ],
             'visible:boolean',
             'created_at:datetime',
             'updated_at:datetime',
@@ -74,12 +65,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['width' => '50'],
                 'template' => '{delete}',
             ],
-        ],
-        'options' => [
-            'data' => [
-                'sortable-widget' => 1,
-                'sortable-url' => \yii\helpers\Url::toRoute(['sorting']),
-            ]
         ],
     ]); ?>
 

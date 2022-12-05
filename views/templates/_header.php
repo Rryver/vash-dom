@@ -32,7 +32,7 @@ if (!isset($isSecondaryHeader)) {
                                 <a href="<?= Url::to('/works') ?>" class="main-menu__link">Галерея</a>
                             </li>
                             <li class="main-menu__item">
-                                <a href="<?= Url::to('/about') ?>" class="main-menu__link">О нас</a>
+                                <a href="<?= Url::to('/page/o-nas') ?>" class="main-menu__link">О нас</a>
                             </li>
                             <li class="main-menu__item">
                                 <a href="<?= Url::to('/promo') ?>" class="main-menu__link">Акции</a>

@@ -4,6 +4,7 @@
 namespace app\models;
 
 
+use app\backend\components\ImageFileHelper;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\web\UploadedFile;
@@ -16,6 +17,7 @@ use yii\web\UploadedFile;
  * @property string $title
  * @property string $description
  * @property string $image
+ * @property string $tag
  * @property integer $visible
  * @property integer $show_in_slider
  * @property integer $sort
@@ -56,7 +58,7 @@ class Promo extends GeneralModel
     {
         return [
             [['title'], 'required'],
-            [['title'], 'string', 'max' => 255],
+            [['title', 'tag'], 'string', 'max' => 255],
             [['description', 'image'], 'string'],
             [['sort', 'visible', 'show_in_slider', 'created_at', 'updated_at'], 'integer'],
         ];
@@ -72,6 +74,7 @@ class Promo extends GeneralModel
             'title' => 'Заголовок',
             'description' => 'Описание',
             'image' => 'Изображение',
+            'tag' => 'Тэг',
             'sort' => 'Позиция',
             'visible' => 'Видимость',
             'show_in_slider' => 'Показывать в слайдере',
@@ -82,18 +85,16 @@ class Promo extends GeneralModel
 
     public function beforeSave($insert)
     {
-        $imageFile = UploadedFile::getInstance($this, 'imageFile');
-        if (is_object($imageFile)) {
-            $path = 'uploads/' . $imageFile->baseName . '.' . $imageFile->extension;
-            if ($imageFile->saveAs($path)) {
-                $this->image = "/" . $path;
-            }
-        } else if (!$imageFile) {
-            unset($this->image);
-            $this->image = null;
-        }
+        ImageFileHelper::saveImage($this);
 
         return parent::beforeSave($insert);
     }
 
+    public function deleteImage()
+    {
+        unlink(Yii::getAlias('@webroot') . $this->image);
+
+        $this->image = null;
+        $this->save();
+    }
 }

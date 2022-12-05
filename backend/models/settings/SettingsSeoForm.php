@@ -77,4 +77,12 @@ class SettingsSeoForm extends Model implements SettingsFormInterface
     {
         return "settings-seo";
     }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getSection(): string
+    {
+        return "SettingsSeoForm";
+    }
 }

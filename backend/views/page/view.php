@@ -1,15 +1,16 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Promo $model
+ * @var app\models\Project $model
  */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Акции'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Страницы'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -22,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => 'Вы уверены, что хотите удалить этот элемент?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -33,16 +34,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'description',
-            'tag',
             [
-                'attribute' => 'image',
+                'attribute' => 'slug',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::a('/page/' . $model->slug, Url::to('/page/' . $model->slug));
+                },
+            ],
+            [
+                'attribute' => 'content',
                 'format' => 'raw',
                 'value' => function($model) {
-                    return Html::img($model->image, ['style' => 'width:300px;']);
-                }
+                    return Html::tag("div", $model->content, ['class' => 'container', 'style' => 'margin-left: 0; padding-left: 0']);
+                },
             ],
-            'show_in_slider:boolean',
             'visible:boolean',
             'created_at:datetime',
             'updated_at:datetime',

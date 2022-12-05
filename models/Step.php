@@ -4,6 +4,8 @@
 namespace app\models;
 
 
+use app\backend\components\ImageFileHelper;
+use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\web\UploadedFile;
 
@@ -79,18 +81,17 @@ class Step extends GeneralModel
 
     public function beforeSave($insert)
     {
-        $imageFile = UploadedFile::getInstance($this, 'imageFile');
-        if (is_object($imageFile)) {
-            $path = 'uploads/' . $imageFile->baseName . '.' . $imageFile->extension;
-            if ($imageFile->saveAs($path)) {
-                $this->image = "/" . $path;
-            }
-        } else if (!$imageFile) {
-            unset($this->image);
-            $this->image = null;
-        }
+        ImageFileHelper::saveImage($this);
 
         return parent::beforeSave($insert);
+    }
+
+    public function deleteImage()
+    {
+        unlink(Yii::getAlias('@webroot') . $this->image);
+
+        $this->image = null;
+        $this->save();
     }
 
 }

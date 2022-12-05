@@ -24,7 +24,9 @@ use yii\helpers\Url;
                         <div class="promo-slider__slide promo-slide">
                             <div class="promo-slide__picture">
                                 <img class="promo-slide__image" src="<?= $promo->image ?>" alt="promo">
-                                <span class="promo-slide__tag">Подарок</span>
+                                <?php if ($promo->tag) { ?>
+                                    <span class="promo-slide__tag"><?= $promo->tag ?></span>
+                                <?php } ?>
                             </div>
                             <div class="promo-slide__info">
                                 <h3 class="promo-slide__title"><?= $promo->title ?></h3>

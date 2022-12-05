@@ -50,15 +50,13 @@ AdminAsset::register($this);
         </div>
 
         <?= Alert::widget() ?>
+
         <?= $content ?>
     </div>
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">
-    <div class="container-fluid">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
-    </div>
+
 </footer>
 
 <?php $this->endBody() ?>

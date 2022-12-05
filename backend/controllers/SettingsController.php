@@ -25,7 +25,7 @@ class SettingsController extends AdminController
                 'view' => 'configuration',
                 'modelClass' => SettingsConfigurationForm::class,
                 'saveSettings' => function($model) {
-                    $this->saveSettings($model, Utils::getClassEndname(SettingsConfigurationForm::class));
+                    $this->saveSettings($model, SettingsConfigurationForm::getSection());
                 }
             ],
             SettingsContentForm::getActionName() => [
@@ -34,7 +34,7 @@ class SettingsController extends AdminController
                 'view' => 'content',
                 'modelClass' => SettingsContentForm::class,
                 'saveSettings' => function($model) {
-                    $this->saveSettings($model, Utils::getClassEndname(SettingsContentForm::class));
+                    $this->saveSettings($model, SettingsContentForm::getSection());
                 }
             ],
             SettingsSeoForm::getActionName() => [
@@ -43,7 +43,7 @@ class SettingsController extends AdminController
                 'view' => 'seo',
                 'modelClass' => SettingsSeoForm::class,
                 'saveSettings' => function($model) {
-                    $this->saveSettings($model, Utils::getClassEndname(SettingsSeoForm::class));
+                    $this->saveSettings($model, SettingsSeoForm::getSection());
                 }
             ],
         ];

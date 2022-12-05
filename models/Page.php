@@ -4,33 +4,34 @@
 namespace app\models;
 
 
-use app\backend\components\ImageFileHelper;
 use Yii;
+use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\web\UploadedFile;
 
 /**
- * This is class model for table '{{%main_slide}}'
+ * This is class model for table '{{%project}}'
  * @package app\models
  *
  * @property integer $id
  * @property string $title
- * @property string $image
- * @property integer $sort
+ * @property string $slug
+ * @property string $content
  * @property integer $visible
+ * @property string $seo_title
+ * @property string $seo_keywords
+ * @property string $seo_description
  * @property integer $created_at
  * @property integer $updated_at
  */
-class MainSlide extends GeneralModel
+class Page extends GeneralModel
 {
-    public $imageFile;
-
     /**
      * @inheritDoc
      */
     public static function tableName()
     {
-        return '{{%main_slide}}';
+        return '{{%page}}';
     }
 
     /**
@@ -40,10 +41,11 @@ class MainSlide extends GeneralModel
     {
         return [
             TimestampBehavior::class,
-            'sortable' => [
-                'class' => \kotchuprik\sortable\behaviors\Sortable::class,
-                'query' => self::find(),
-                'orderAttribute' => 'sort',
+            [
+                'class' => SluggableBehavior::class,
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+                'ensureUnique' => true,
             ],
         ];
     }
@@ -55,9 +57,9 @@ class MainSlide extends GeneralModel
     {
         return [
             [['title'], 'required'],
-            [['title'], 'string', 'max' => 255],
-            [['image'], 'string'],
-            [['sort', 'visible', 'created_at', 'updated_at'], 'integer'],
+            [['title', 'slug', 'seo_title', 'seo_keywords', 'seo_description'], 'string', 'max' => 255],
+            [['content'], 'string'],
+            [['visible', 'created_at', 'updated_at'], 'integer'],
         ];
     }
 
@@ -69,27 +71,14 @@ class MainSlide extends GeneralModel
         return [
             'id' => 'ID',
             'title' => 'Заголовок',
-            'image' => 'Изображение',
-            'sort' => 'Позиция',
+            'slug' => 'Url',
+            'content' => 'Контент',
             'visible' => 'Видимость',
+            'seo_title' => 'SEO Title',
+            'seo_keywords' => 'SEO Keywords',
+            'seo_description' => 'SEO Description',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];
     }
-
-    public function beforeSave($insert)
-    {
-        ImageFileHelper::saveImage($this);
-
-        return parent::beforeSave($insert);
-    }
-
-    public function deleteImage()
-    {
-        unlink(Yii::getAlias('@webroot') . $this->image);
-
-        $this->image = null;
-        $this->save();
-    }
-
 }

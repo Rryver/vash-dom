@@ -12,7 +12,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
-        "@yii"   => '@app/vendor',
+        "@vendor"   => '@app/vendor',
     ],
     'components' => [
         'cache' => [
@@ -30,10 +30,16 @@ $config = [
     ],
     'params' => $params,
     'controllerMap' => [
+        // Общие миграции приложения
+        'migrate-app' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' => ['app\migrations'],
+            'migrationTable' => 'migration',
+        ],
         // Миграции одного из расширений
         'migrate-module-settings' => [
             'class' => 'yii\console\controllers\MigrateController',
-            'migrationPath' => '@yii/yii2mod/yii2-settings/migrations',
+            'migrationPath' => '@vendor/yii2mod/yii2-settings/migrations',
             'migrationTable' => 'migration_settings',
         ],
     ],

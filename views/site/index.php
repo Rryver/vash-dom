@@ -1,5 +1,8 @@
 <?php
 
+use app\backend\models\settings\SettingsSeoForm;
+
+
 /**
  * @var yii\web\View $this
  * @var \app\models\Promo[] $promos
@@ -8,7 +11,18 @@
  * @var \app\models\Step[] $steps
  */
 
-$this->title = 'Ваш дом - салон мебели | Кухни на заказ в Вологодской области';
+$this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'homePageTitle');
+$keywords = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'homePageKeywords');
+$description = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'homePageDescription');
+
+if ($keywords) {
+    $this->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+}
+
+if ($description) {
+    $this->registerMetaTag(['name' => 'description', 'content' => $description]);
+}
+
 ?>
 
 <?= $this->render('partials/_slider-main', ['mainSlides' => $mainSlides]) ?>

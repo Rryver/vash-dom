@@ -54,4 +54,12 @@ class SettingsContentForm extends Model implements SettingsFormInterface
     {
         return "settings-content";
     }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getSection(): string
+    {
+        return "SettingsContentForm";
+    }
 }

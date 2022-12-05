@@ -1,5 +1,6 @@
 <?php
 
+use app\backend\models\settings\SettingsSeoForm;
 use yii\helpers\Url;
 
 /**
@@ -7,7 +8,17 @@ use yii\helpers\Url;
  * @var \app\models\Promo[] $promos
  */
 
-$this->title = 'Акции';
+$this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'promoPageTitle');
+$keywords = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'promoPageKeywords');
+$description = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'promoPageDescription');
+
+if ($keywords) {
+    $this->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+}
+
+if ($description) {
+    $this->registerMetaTag(['name' => 'description', 'content' => $description]);
+}
 
 ?>
 

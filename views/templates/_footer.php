@@ -9,7 +9,7 @@
 <footer class="footer">
     <div class="footer__content">
         <a class="footer__logo" href="#">
-            <img class="logo" src="images/logo.svg" alt="logo">
+            <img class="logo" src="/images/logo.svg" alt="logo">
         </a>
 
         <div class="footer__text">Консультации по телефону: с 9:00 до 21:00</div>

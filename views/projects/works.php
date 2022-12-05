@@ -1,12 +1,24 @@
 <?php
 
+use app\backend\models\settings\SettingsSeoForm;
+
 /**
  * @var \yii\web\View $this
  * @var \app\models\Project[] $projects
  */
 
-$this->title = 'Наши работы'
+$this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'projectsPageTitle');
+$keywords = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'projectsPageKeywords');
+$description = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'projectsPageDescription');
 
+if ($keywords) {
+    $this->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+}
+
+if ($description) {
+    $this->registerMetaTag(['name' => 'description', 'content' => $description]);
+}
+\yii\behaviors\SluggableBehavior::class
 ?>
 
 

@@ -2,11 +2,22 @@
 
 /** @var yii\web\View $this */
 
+use app\backend\models\settings\SettingsSeoForm;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
 
 $message = new \app\models\Message();
-$this->title = 'Контакты';
+$this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'contactsPageTitle');
+$keywords = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'contactsPageKeywords');
+$description = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'contactsPageDescription');
+
+if ($keywords) {
+    $this->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
+}
+
+if ($description) {
+    $this->registerMetaTag(['name' => 'description', 'content' => $description]);
+}
 
 ?>
 

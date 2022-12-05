@@ -10,6 +10,7 @@ use app\models\search\StepSearch;
 use kotchuprik\sortable\actions\Sorting;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class StepController extends AdminController
 {
@@ -124,5 +125,18 @@ class StepController extends AdminController
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function actionDeleteImage()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $id = Yii::$app->request->post('key');
+
+        $model = $this->findModel($id);
+
+        $model->deleteImage();
+
+        return;
     }
 }

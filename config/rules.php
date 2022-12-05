@@ -12,8 +12,11 @@ return [
     'messageSuccess' => 'message/success',
     'messageError' => 'message/error',
 
+    'page/<slug>' => 'page/view',
+
     /* ADMIN */
     'admin/index' => 'admin/message',
+    'admin' => 'admin/message',
 
     'admin/<controller:\w+>/<id:\d+>' => 'admin/<controller>/<view>',
     'admin/<controller:\w+>/<action:\w+>/<id:\d+>' => 'admin/<controller>/<action>',
