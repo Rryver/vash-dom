@@ -2,6 +2,7 @@
 
 /** @var yii\web\View $this */
 
+use app\backend\models\settings\SettingsContentForm;
 use app\backend\models\settings\SettingsSeoForm;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
@@ -10,6 +11,10 @@ $message = new \app\models\Message();
 $this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'contactsPageTitle');
 $keywords = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'contactsPageKeywords');
 $description = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'contactsPageDescription');
+$phone = Yii::$app->settings->get(SettingsContentForm::getSection(), 'phone');
+$email = Yii::$app->settings->get(SettingsContentForm::getSection(), 'email');
+$address = Yii::$app->settings->get(SettingsContentForm::getSection(), 'address');
+$contactText = Yii::$app->settings->get(SettingsContentForm::getSection(), 'contactText');
 
 if ($keywords) {
     $this->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
@@ -29,26 +34,30 @@ if ($description) {
         <div class="contacts-page__content m-t-30">
             <div class="contacts-page__flex-wrap">
                 <div class="contacts-page__info col-12 col-md-6">
+                    <?php if ($contactText) { ?>
                     <div class="contacts-page__text">
-                        <p>
-                            Если вы хотите заказать кухню в Вологодской области или задать вопрос, напишите нам на
-                            электронную почту или заполните форму обратной связи. <br> Мы обязательно свяжемся и проконсультируем
-                            вас.
-                        </p>
+                        <?= $contactText ?>
                     </div>
+                    <?php } ?>
                     <div class="contacts-page__contacts contacts-list">
-                        <a class="contacts-list__item link-text" href="tel:+7 (911) 111-11-11">
-                            <img class="contacts-item-icon map-icon" src="images/icons/phone-call-black.svg" alt="">
-                            +7 (911) 111-11-11
-                        </a>
-                        <a class="contacts-list__item link-text" href="mailto:example@mail.ru">
-                            <img class="contacts-item-icon map-icon" src="images/icons/email.svg" alt="">
-                            example@mail.ru
-                        </a>
-                        <address class="contacts-list__item contacts-address link-text">
-                            <img class="contacts-item-icon map-icon" src="images/icons/map-marker-svgrepo-com.svg" alt="">
-                            обл. Вологодская, г. Шексна
-                        </address>
+                        <?php if ($phone) { ?>
+                            <a class="contacts-list__item link-text" href="tel:<?= $phone ?>">
+                                <img class="contacts-item-icon map-icon" src="images/icons/phone-call-black.svg" alt="">
+                                <?= $phone ?>
+                            </a>
+                        <?php } ?>
+                        <?php if ($email) { ?>
+                            <a class="contacts-list__item link-text" href="mailto:<?= $email ?>">
+                                <img class="contacts-item-icon map-icon" src="images/icons/email.svg" alt="">
+                                <?= $email ?>
+                            </a>
+                        <?php } ?>
+                        <?php if ($address) { ?>
+                            <address class="contacts-list__item contacts-address link-text">
+                                <img class="contacts-item-icon map-icon" src="images/icons/map-marker-svgrepo-com.svg" alt="">
+                                <?= $address ?>
+                            </address>
+                        <?php } ?>
                     </div>
                 </div>
 

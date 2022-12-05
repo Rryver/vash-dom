@@ -48,9 +48,9 @@ if ($description) {
                     <?php } ?>
                 </div>
 
-                <div class="promo-all__btn-wrap m-t-20">
-                    <a class="btn btn-call" href="<?= Url::to("/works") ?>">Показать еще</a>
-                </div>
+<!--                <div class="promo-all__btn-wrap m-t-20">-->
+<!--                    <a class="btn btn-call" href="--><?//= Url::to("/works") ?><!--">Показать еще</a>-->
+<!--                </div>-->
             <?php } ?>
         </div>
     </div>

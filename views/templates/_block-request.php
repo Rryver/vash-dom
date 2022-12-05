@@ -1,11 +1,13 @@
 <?php
 
+use yii\helpers\Url;
+use yii\bootstrap5\ActiveForm;
+
 /**
  * @var \yii\web\View $this
  */
 
-use yii\helpers\Url;
-use yii\widgets\ActiveForm;
+
 
 $message = new \app\models\Message();
 
@@ -31,10 +33,20 @@ $message = new \app\models\Message();
                     'class' => '',
                 ],
             ])->hiddenInput(['class' => 'shield', 'value' => $message->check ? : 0])->label(false) ?>
-            <?= $form->field($message, 'name')->textInput([
+
+            <?= $form->field($message, 'name', [
+                'options' => [
+                    'class' => 'form-group',
+                ],
+            ])->textInput([
                 'placeholder' => 'Имя',
             ])->label(false) ?>
-            <?= $form->field($message, 'phone')->textInput([
+
+            <?= $form->field($message, 'phone', [
+                'options' => [
+                    'class' => 'form-group',
+                ],
+            ])->textInput([
                 'placeholder' => 'Телефон',
                 'class' => 'form-control phone-mask shield-start'
             ])->label(false) ?>

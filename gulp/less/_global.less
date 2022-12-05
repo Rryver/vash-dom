@@ -202,6 +202,21 @@ button:focus {
     }
 }
 
+.pagination {
+    justify-content: center;
+
+    & .page-item.active .page-link {
+        background-color: @color-theme-red;
+        border-color: @color-theme-red;
+        color: @color-white;
+    }
+
+    & .page-item .page-link {
+        color: @color-dark;
+        border: none;
+    }
+}
+
 @media screen and (min-width: 1400px) {
     .container {
         max-width: 1140px;

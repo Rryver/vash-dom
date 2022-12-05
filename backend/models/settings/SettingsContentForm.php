@@ -11,6 +11,7 @@ class SettingsContentForm extends Model implements SettingsFormInterface
     public $email;
     public $address;
     public $workTime;
+    public $contactText;
 
     public $blockAboutText;
 
@@ -26,9 +27,9 @@ class SettingsContentForm extends Model implements SettingsFormInterface
                 'email',
                 'address',
                 'workTime',
-
-                'blockAboutText',
             ], 'string', 'max' => 255],
+
+            [['blockAboutText', 'contactText'], 'string']
         ];
     }
 
@@ -42,6 +43,7 @@ class SettingsContentForm extends Model implements SettingsFormInterface
             'email' => 'Email',
             'address' => 'Адресс',
             'workTime' => 'Время работы',
+            'contactText' => 'Контакты - Текст',
 
             'blockAboutText' => 'О нас - Текст',
         ];

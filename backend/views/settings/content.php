@@ -22,11 +22,18 @@ $this->params['breadcrumbs'][] = ['label' => $this->title];
             'action' => Url::to(['/admin/settings/' . SettingsContentForm::getActionName()]),
         ]); ?>
 
-        <?php echo $form->field($model, 'phone'); ?>
+        <?php echo $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::class, [
+            'mask' => '+7 (999) 999-99-99',
+        ]); ?>
         <?php echo $form->field($model, 'email'); ?>
         <?php echo $form->field($model, 'address'); ?>
         <?php echo $form->field($model, 'workTime'); ?>
-        <?php echo $form->field($model, 'blockAboutText'); ?>
+        <?= $form->field($model, 'contactText')->widget(\vova07\imperavi\Widget::class, [
+            'settings' => Yii::$app->params['imperavi-redactor-settings'],
+        ]) ?>
+        <?= $form->field($model, 'blockAboutText')->widget(\vova07\imperavi\Widget::class, [
+            'settings' => Yii::$app->params['imperavi-redactor-settings'],
+        ]) ?>
 
         <?php echo Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
 

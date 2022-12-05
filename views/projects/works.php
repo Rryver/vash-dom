@@ -1,10 +1,12 @@
 <?php
 
 use app\backend\models\settings\SettingsSeoForm;
+use yii\bootstrap5\LinkPager;
 
 /**
  * @var \yii\web\View $this
  * @var \app\models\Project[] $projects
+ * @var \yii\data\Pagination $pages
  */
 
 $this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'projectsPageTitle');
@@ -38,9 +40,16 @@ if ($description) {
                     <?php } ?>
                 </div>
 
-                <div class="our-works__btn-wrap">
-                    <a class="btn btn-call" href="works.html">Показать еще</a>
+                <div class="m-t-30">
+                    <?= LinkPager::widget([
+                        'pagination' => $pages,
+                    ]) ?>
                 </div>
+
+
+<!--                <div class="our-works__btn-wrap">-->
+<!--                    <a class="btn btn-call" href="works.html">Показать еще</a>-->
+<!--                </div>-->
 
             <?php } ?>
 

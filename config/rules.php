@@ -6,7 +6,6 @@ return [
 
     'works' => 'projects/works',
     'promo' => 'site/promo',
-    'about' => 'site/about',
     'contacts' => 'site/contacts',
 
     'messageSuccess' => 'message/success',

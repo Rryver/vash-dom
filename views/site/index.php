@@ -1,5 +1,6 @@
 <?php
 
+use app\backend\models\settings\SettingsContentForm;
 use app\backend\models\settings\SettingsSeoForm;
 
 
@@ -14,6 +15,7 @@ use app\backend\models\settings\SettingsSeoForm;
 $this->title = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'homePageTitle');
 $keywords = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'homePageKeywords');
 $description = Yii::$app->settings->get(SettingsSeoForm::getSection(), 'homePageDescription');
+$blockAboutText = Yii::$app->settings->get(SettingsContentForm::getSection(), 'blockAboutText');
 
 if ($keywords) {
     $this->registerMetaTag(['name' => 'keywords', 'content' => $keywords]);
@@ -37,18 +39,11 @@ if ($description) {
             <div class="about__header">
                 <h1 class="heading-36">САЛОН МЕБЕЛИ «<span class="text-color-red">ВАШ ДОМ</span>»</h1>
             </div>
-            <div class="about__content">
-                У Вас есть возможность обставить свое жилье так, как этого хотите Вы. Окружить себя теми предметами,
-                которые будут полезны и удобны. Найти то, что будет поднимать настроение и задавать ритм Вашей
-                жизни. Сделайте это без лишних потерь – финансовых и временных.
-                <ul>
-                    <li>- 3 выставочных зала;</li>
-                    <li>- У нас большой опыт работы, знания и профессиональный коллектив;</li>
-                    <li>- У нас покупатель подбирает именно такой материал, который бы идеально подходил под интерьер и стиль;</li>
-                    <li>- Мебель можно заказать любой конструкции, как по собственному проекту, так и по предложениям нашего дизайнера;</li>
-                    <li>- Для каждого клиента – у нас индивидуальный подход, учитывая все его пожелания, потребности и требования.</li>
-                </ul>
-            </div>
+            <?php if ($blockAboutText) { ?>
+                <div class="about__content">
+                    <?= $blockAboutText ?>
+                </div>
+            <?php } ?>
             <div class="about__footer">
                 <h1 class="heading-36">ПРИЯТНО БЫТЬ <span class="text-color-red">ДОМА</span></h1>
             </div>

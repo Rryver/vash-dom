@@ -231,6 +231,20 @@ button:focus {
   display: block;
   margin-bottom: 10px;
 }
+.pagination {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.pagination .page-item.active .page-link {
+  background-color: #FF1B00;
+  border-color: #FF1B00;
+  color: #FFFFFF;
+}
+.pagination .page-item .page-link {
+  color: #2B2B2B;
+  border: none;
+}
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1140px;
@@ -974,6 +988,7 @@ text-align-center {
 .request-form .form-group {
   display: inline-block;
   margin-right: 20px;
+  vertical-align: top;
 }
 .request-form input {
   display: inline-block;
