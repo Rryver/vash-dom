@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\MainSlide;
+use app\models\Message;
+use app\models\MessagePromo;
 use app\models\Project;
 use app\models\Promo;
 use app\models\Step;
@@ -71,4 +73,21 @@ class SiteController extends Controller
         return $this->render('promo', ['promos' => $promos]);
     }
 
+    public function actionTestMail()
+    {
+        $message = new MessagePromo();
+
+        $message->name = 'test name';
+        $message->phone = '+79211233322';
+        $message->message = "У Вас есть возможность обставить свое жилье так, как этого хотите Вы. Окружить себя теми предметами, которые будут полезны и удобны. Найти то, что будет поднимать настроение и задавать ритм Вашей жизни. Сделайте это без лишних потерь – финансовых и временных.
+- 3 выставочных зала;
+- У нас большой опыт работы, знания и профессиональный коллектив;
+- У нас покупатель подбирает именно такой материал, который бы идеально подходил под интерьер и стиль;
+- Мебель можно заказать любой конструкции, как по собственному проекту, так и по предложениям нашего дизайнера;
+- Для каждого клиента – у нас индивидуальный подход, учитывая все его пожелания, потребности и требования.";
+
+        $message->promo_name_when_created_at = "<span class=\"text-color-red\">Вытяжка</span> в подарок!";
+
+        $message->sendMailToAdmin();
+    }
 }

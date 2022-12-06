@@ -25,6 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'tableOptions' => [
             'class' => 'table table-striped table-bordered'
         ],
+        'pager' => [
+            'class' => 'yii\bootstrap5\LinkPager',
+        ],
         'columns' => [
             'id',
             'name',

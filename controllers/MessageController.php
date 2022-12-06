@@ -17,6 +17,7 @@ class MessageController extends Controller
         $message = new Message();
         if ($message->load(Yii::$app->request->post()) && $message->validate()) {
             if ($message->save()) {
+                $message->sendMailToAdmin();
                 return $this->redirect("/messageSuccess");
             }
         }
@@ -31,6 +32,7 @@ class MessageController extends Controller
             if ($promo) {
                 $messagePromo->promo_name_when_created_at = $promo->title;
                 if ($messagePromo->save()) {
+                    $messagePromo->sendMailToAdmin();
                     return $this->redirect("/messageSuccess");
                 }
             }

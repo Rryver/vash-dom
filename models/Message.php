@@ -4,6 +4,8 @@
 namespace app\models;
 
 
+use app\backend\models\settings\SettingsConfigurationForm;
+use app\utils\Utils;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -63,5 +65,14 @@ class Message extends GeneralModel
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];
+    }
+
+    public function sendMailToAdmin()
+    {
+        $mail = Yii::$app->mailer->compose('message-notify', ['model' => $this]);
+        $mail->setFrom([Yii::$app->params['senderEmail'] => Utils::getClearedHostUrl()])
+            ->setTo(Yii::$app->settings->get(SettingsConfigurationForm::getSection(), 'adminEmail'))
+            ->setSubject('Заявка с сайта')
+            ->send();
     }
 }

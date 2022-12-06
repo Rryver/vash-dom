@@ -3,6 +3,8 @@
 
 namespace app\models;
 
+use app\backend\models\settings\SettingsConfigurationForm;
+use app\utils\Utils;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -65,5 +67,14 @@ class MessagePromo extends GeneralModel
             'updated_at' => 'Обновлено',
             'promo_id' => 'Акция'
         ];
+    }
+
+    public function sendMailToAdmin()
+    {
+        $mail = Yii::$app->mailer->compose('message-promo-notify', ['model' => $this]);
+        $mail->setFrom([Yii::$app->params['senderEmail'] => Utils::getClearedHostUrl()])
+            ->setTo(Yii::$app->settings->get(SettingsConfigurationForm::getSection(), 'adminEmail'))
+            ->setSubject('Заявка с сайта (акция)')
+            ->send();
     }
 }

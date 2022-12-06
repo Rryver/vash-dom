@@ -1,5 +1,9 @@
 <?php
 
+use app\models\Page;
+use himiklab\sitemap\behaviors\SitemapBehavior;
+use yii\helpers\Url;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -20,6 +24,59 @@ $config = [
 //        'settings' => [
 //            'class' => 'yii2mod\settings\Module',
 //        ],
+        'sitemap' => [
+            'class' => 'himiklab\sitemap\Sitemap',
+            'models' => [
+                // or configuration for creating a behavior
+                [
+                    'class' => 'app\models\Page',
+                    'behaviors' => [
+                        'sitemap' => [
+                            'class' => SitemapBehavior::className(),
+                            'scope' => function ($model) {
+                                /** @var \yii\db\ActiveQuery $model */
+                                $model->select(['slug', 'updated_at']);
+                                $model->andWhere(['visible' => Page::VISIBLE]);
+                            },
+                            'dataClosure' => function ($model) {
+                                /** @var Page $model */
+                                return [
+                                    'loc' => Url::to('/page/' . $model->slug, true),
+                                    'lastmod' => strtotime($model->updated_at),
+                                    'changefreq' => SitemapBehavior::CHANGEFREQ_WEEKLY,
+                                    'priority' => 0.5,
+                                ];
+                            }
+                        ],
+                    ],
+                ],
+            ],
+            'urls'=> [
+                // your additional urls
+                [
+                    'loc' => '/',
+                    'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
+                    'priority' => 0.8,
+                ],
+                [
+                    'loc' => 'our-works',
+                    'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
+                    'priority' => 0.8,
+                ],
+                [
+                    'loc' => 'promo',
+                    'changefreq' => SitemapBehavior::CHANGEFREQ_WEEKLY,
+                    'priority' => 0.8,
+                ],
+                [
+                    'loc' => 'contacts',
+                    'changefreq' => SitemapBehavior::CHANGEFREQ_MONTHLY,
+                    'priority' => 0.8,
+                ],
+            ],
+            'enableGzip' => true, // default is false
+            'cacheExpire' => 1, // 1 second. Default is 24 hours
+        ],
     ],
     'components' => [
         'request' => [
@@ -40,14 +97,24 @@ $config = [
             'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@app/mail',
             // send all mails to a file by default.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+
+            'transport' => [
+                'scheme' => 'smtps',
+                'host' => 'smtp.yandex.com',
+                'username' => 'ryver.mailer@yandex.ru',
+                'password' => 'ihwwerbyexvjhmxr',
+                'port' => 465,
+                //'dsn' => 'native://default',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'class' => 'yii\log\DbTarget',
+                    'levels' => ['error'],
+
                 ],
             ],
         ],

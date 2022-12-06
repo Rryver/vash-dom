@@ -22,7 +22,8 @@
         "kartik-v/yii2-widget-fileinput": "^1.0",
         "himiklab/yii2-easy-thumbnail-image-helper": "*",
         "yii2mod/yii2-settings": "*",
-        "vova07/yii2-imperavi-widget": "*"
+        "vova07/yii2-imperavi-widget": "*",
+        "himiklab/yii2-sitemap-module": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

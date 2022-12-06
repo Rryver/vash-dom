@@ -4,6 +4,8 @@ return [
     'api/v1/<controller:\w+>/<action:\w+>/<id:\d+>' => 'api-v1/<controller>/<action>',
     'api/v1/<controller:\w+>/<action:\w+>' => 'api-v1/<controller>/<action>',
 
+    ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
+
     'works' => 'projects/works',
     'promo' => 'site/promo',
     'contacts' => 'site/contacts',

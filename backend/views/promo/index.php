@@ -30,6 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'tableOptions' => [
             'class' => 'table table-striped table-bordered'
         ],
+        'pager' => [
+            'class' => 'yii\bootstrap5\LinkPager',
+        ],
         'rowOptions' => function ($model, $key, $index, $grid) {
             return ['data-sortable-id' => $model->id];
         },

@@ -21,6 +21,11 @@ return [
                 'url' => '/admin/settings/settings-seo',
                 'active' => ($controllerId == 'settings' && $actionId == SettingsSeoForm::getActionName())
             ],
+            [
+                'label' => 'Логи',
+                'url' => '/admin/log',
+                'active' => ($controllerId == 'log')
+            ],
         ]
     ],
     '<li class="nav-item">'
