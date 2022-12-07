@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var app\models\Promo $model
  */
 
-$this->title = Yii::t('app', 'Create Promo');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Акции'), 'url' => ['index']];
+$this->title = 'Создать';
+$this->params['breadcrumbs'][] = ['label' => 'Акции', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-create">

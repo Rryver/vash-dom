@@ -8,7 +8,7 @@ use yii\helpers\Html;
  */
 
 $this->title = 'Создать';
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Как мы работаем'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Как мы работаем', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-create">

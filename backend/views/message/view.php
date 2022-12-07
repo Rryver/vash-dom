@@ -5,11 +5,11 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Step $model
+ * @var app\models\Message $model
  */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Как мы работаем', 'url' => ['index']];
+$this->title = 'Заявка';
+$this->params['breadcrumbs'][] = ['label' => 'Заявки', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -18,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -32,15 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'description',
-            [
-                'attribute' => 'image',
-                'format' => 'raw',
-                'value' => function($model) {
-                    return Html::img($model->image, ['style' => 'width:300px;']);
-                }
-            ],
+            'name',
+            'phone',
+            'message:ntext',
             'visible:boolean',
             'created_at:datetime',
             'updated_at:datetime',

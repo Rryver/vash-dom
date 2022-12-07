@@ -1,5 +1,11 @@
 <?php
 
+use app\backend\models\settings\SettingsContentForm;
+
+$phone = Yii::$app->settings->get(SettingsContentForm::getSection(), 'phone');
+$email = Yii::$app->settings->get(SettingsContentForm::getSection(), 'email');
+$workTime = Yii::$app->settings->get(SettingsContentForm::getSection(), 'workTime');
+
 ?>
 
 <?php
@@ -12,13 +18,19 @@
             <img class="logo" src="/images/logo.svg" alt="logo">
         </a>
 
-        <div class="footer__text">Консультации по телефону: с 9:00 до 21:00</div>
-        <div class="footer__text">
-            <a class="link-text link-phone" href="tel:+7 (921) 123-45-67">+7 (921) 123-45-67</a>
-        </div>
-        <div class="footer__text">
-            <a class="link-text link-email" href="mailto:example@emaple.ru">example@emaple.ru</a>
-        </div>
+        <?php if ($workTime) { ?>
+            <div class="footer__text">Консультации по телефону: <?= $workTime ?></div>
+        <?php } ?>
+        <?php if ($phone) { ?>
+            <div class="footer__text">
+                <a class="link-text link-phone" href="tel:<?= $phone ?>"><?= $phone ?></a>
+            </div>
+        <?php } ?>
+        <?php if ($email) { ?>
+            <div class="footer__text">
+                <a class="link-text link-email" href="mailto:<?= $email ?>"><?= $email ?></a>
+            </div>
+        <?php } ?>
         <div class="footer__text">
             <a class="vk-link" href="https://vk.com/dom86" target="_blank">
                 <!--                <img src="images/vk_small.svg" alt="vk" class="vk-icon">-->

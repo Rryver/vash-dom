@@ -11,7 +11,7 @@ use yii\widgets\Pjax;
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
-$this->title = Yii::t('app', 'Страницы');
+$this->title = 'Страницы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">

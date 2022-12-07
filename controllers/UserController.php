@@ -9,6 +9,7 @@ use app\models\form\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -108,7 +109,7 @@ class UserController extends Controller
 
         $model = new LoginAdminForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(Url::to("/admin"));
         }
 
         $model->password = '';

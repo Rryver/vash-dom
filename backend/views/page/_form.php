@@ -31,6 +31,11 @@ use yii\helpers\Url;
     ]) ?>
     </div>
 
+
+    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'seo_description')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

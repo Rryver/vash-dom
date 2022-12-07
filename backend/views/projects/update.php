@@ -7,12 +7,12 @@ use yii\helpers\Html;
  * @var app\models\Project $model
  */
 
-$this->title = Yii::t('app', 'Update Product: {name}', [
+$this->title = Yii::t('app', 'Обновить: {name}', [
     'name' => $model->title,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Наши работы'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Наши работы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="order-update">
     <div class="panel panel-default">
