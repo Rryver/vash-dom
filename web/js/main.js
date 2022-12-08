@@ -104,18 +104,15 @@
 
     function mainMenuClickOutside() {
         $(document).on("click", function (e) {
-            e.preventDefault();
-
             let mainMenuMobile = $(".main-menu_mobile");
             let btnOpenMenu = $(".header__menu-button.button-hamburger");
-            
+
             if (!mainMenuMobile.is(e.target) && mainMenuMobile.has(e.target).length === 0 && !btnOpenMenu.is(e.target))
             {
                 if (mainMenuMobile.hasClass("main-menu_visible")) {
                     mainMenuMobile.removeClass("main-menu_visible");
                 }
             }
-
         })
     }
 
