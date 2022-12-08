@@ -95,10 +95,27 @@
     }
 
     function mainMenuToggleVisibility() {
-        $(".header__menu-button.button-hamburger, .main-menu__button-close").on("click", function (e) {
+        $(".header__menu-button.button-hamburger, .main-menu_mobile__button-close").on("click", function (e) {
             e.preventDefault();
 
             $(".header__menu").toggleClass("main-menu_visible");
+        })
+    }
+
+    function mainMenuClickOutside() {
+        $(document).on("click", function (e) {
+            e.preventDefault();
+
+            let mainMenuMobile = $(".main-menu_mobile");
+            let btnOpenMenu = $(".header__menu-button.button-hamburger");
+            
+            if (!mainMenuMobile.is(e.target) && mainMenuMobile.has(e.target).length === 0 && !btnOpenMenu.is(e.target))
+            {
+                if (mainMenuMobile.hasClass("main-menu_visible")) {
+                    mainMenuMobile.removeClass("main-menu_visible");
+                }
+            }
+
         })
     }
 
@@ -112,6 +129,7 @@
     $(document).ready(function () {
         mask();
         mainMenuToggleVisibility();
+        mainMenuClickOutside();
 
         mainSlider();
         promoSlider();

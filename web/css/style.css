@@ -386,6 +386,7 @@ button:focus {
 .heading-14,
 .form-contacts__title,
 .main-menu__item,
+.main-menu_mobile__item,
 .step__title,
 .works-card__title,
 .promo-slide__tag,
@@ -409,6 +410,7 @@ button:focus {
 .heading-24,
 .form-contacts__title,
 .main-menu__item,
+.main-menu_mobile__item,
 .step__title,
 .promo-slide__tag,
 .promo-slide__title,
@@ -531,6 +533,7 @@ button:focus {
           align-items: center;
   padding-top: 11px;
   padding-bottom: 11px;
+  position: relative;
 }
 .main-menu__item {
   display: inline-block;
@@ -563,12 +566,38 @@ button:focus {
 .main-menu_visible {
   right: 0px !important;
 }
-.main-menu__btn-close-helper {
+.main-menu_mobile {
   display: none;
+  position: fixed;
+  z-index: 10;
+  right: -250px;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  text-align: center;
+  background: #F2F2F2;
+  overflow-y: auto;
+  -webkit-transition: all ease 0.4s;
+  -o-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+}
+.main-menu_mobile__list:after {
+  display: block;
+  margin-top: 10px;
+  content: "";
+  height: 1px;
+  background: #FF1B00;
+}
+.main-menu_mobile__item {
+  display: block;
+  margin-bottom: 20px;
+}
+.main-menu_mobile__btn-close-helper {
+  display: block;
   padding: 20px;
 }
-.main-menu__button-close {
-  display: none;
+.main-menu_mobile__button-close {
+  display: inline-block;
 }
 .header-secondary {
   margin-top: 0;
@@ -607,39 +636,14 @@ button:focus {
     margin-left: auto;
     margin-right: auto;
   }
+  .header .main-menu {
+    display: none;
+  }
+  .header .main-menu_mobile {
+    display: block;
+  }
   .header.header-secondary .main-menu {
     top: 0;
-  }
-  .main-menu {
-    position: fixed;
-    z-index: 10;
-    right: -250px;
-    top: -40px;
-    width: 250px;
-    height: 100vh;
-    text-align: center;
-    background: #F2F2F2;
-    overflow-y: auto;
-    -webkit-transition: all ease 0.4s;
-    -o-transition: all ease 0.4s;
-    transition: all ease 0.4s;
-  }
-  .main-menu__list:after {
-    display: block;
-    margin-top: 10px;
-    content: "";
-    height: 1px;
-    background: #FF1B00;
-  }
-  .main-menu__item {
-    display: block;
-    margin-bottom: 20px;
-  }
-  .main-menu__btn-close-helper {
-    display: block;
-  }
-  .main-menu__button-close {
-    display: inline-block;
   }
 }
 @media screen and (max-width: 576px) {

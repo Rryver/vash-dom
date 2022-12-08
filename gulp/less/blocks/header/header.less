@@ -47,6 +47,7 @@
     align-items: center;
     padding-top: 11px;
     padding-bottom: 11px;
+    position: relative;
 }
 
 .main-menu {
@@ -91,14 +92,50 @@
         //width: 250px !important;
         right: 0px !important;
     }
+}
+
+.main-menu_mobile {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    right: -(@main-menu-width-modile);
+    top: 0;
+    width: @main-menu-width-modile;
+    height: 100vh;
+    text-align: center;
+    background: @color-theme-light;
+    overflow-y: auto;
+    transition: all ease .4s;
+
+
+    &__list {
+        &:after {
+            display: block;
+            margin-top: 10px;
+            content: "";
+            height: 1px;
+            background: @color-theme-red;
+            //background: linear-gradient(
+            //        to right,
+            //        @color-theme-light,
+            //        @color-theme-red,
+            //        @color-theme-light);
+        }
+    }
+
+    &__item {
+        &:extend(.heading-24);
+        display: block;
+        margin-bottom: 20px;
+    }
 
     &__btn-close-helper {
-        display: none;
+        display: block;
         padding: 20px;
     }
 
     &__button-close {
-        display: none;
+        display: inline-block;
     }
 }
 
@@ -144,6 +181,14 @@
                 margin-right: auto;
             }
         }
+
+        & .main-menu {
+            display: none;
+        }
+
+        & .main-menu_mobile {
+            display: block;
+        }
     }
 
     .header.header-secondary {
@@ -152,47 +197,7 @@
         }
     }
 
-    .main-menu {
-        position: fixed;
-        z-index: 10;
-        right: -(@main-menu-width-modile);
-        top: -(@main-menu-margin-top);
-        width: @main-menu-width-modile;
-        height: 100vh;
-        text-align: center;
-        background: @color-theme-light;
-        overflow-y: auto;
-        transition: all ease .4s;
 
-
-        &__list {
-            &:after {
-                display: block;
-                margin-top: 10px;
-                content: "";
-                height: 1px;
-                background: @color-theme-red;
-                //background: linear-gradient(
-                //        to right,
-                //        @color-theme-light,
-                //        @color-theme-red,
-                //        @color-theme-light);
-            }
-        }
-
-        &__item {
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        &__btn-close-helper {
-            display: block;
-        }
-
-        &__button-close {
-            display: inline-block;
-        }
-    }
 }
 
 @media screen and (max-width: 576px){
