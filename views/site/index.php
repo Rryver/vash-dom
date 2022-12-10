@@ -33,8 +33,8 @@ if ($description) {
 <section class="about">
     <div class="container">
         <div class="about__wrapper">
-            <img class="about__line line-top-left" src="images/about_line_top-left.svg">
-            <img class="about__line line-top-right" src="images/about_line_top-right.svg">
+            <img class="about__line line-top-left" src="/images/about_line_top-left.svg">
+            <img class="about__line line-top-right" src="/images/about_line_top-right.svg">
             <!--                    <img class="about__line_top" src="images/about_top.svg">-->
             <div class="about__header">
                 <h1 class="heading-36">САЛОН МЕБЕЛИ «<span class="text-color-red">ВАШ ДОМ</span>»</h1>
@@ -48,8 +48,8 @@ if ($description) {
                 <h1 class="heading-36">ПРИЯТНО БЫТЬ <span class="text-color-red">ДОМА</span></h1>
             </div>
             <!--                    <img class="about__line_footer" src="images/about_footer.svg">-->
-            <img class="about__line line-bottom-left" src="images/about_line_bottom-left.svg">
-            <img class="about__line line-bottom-right" src="images/about_line_bottom-right.svg">
+            <img class="about__line line-bottom-left" src="/images/about_line_bottom-left.svg">
+            <img class="about__line line-bottom-right" src="/images/about_line_bottom-right.svg">
         </div>
     </div>
 </section>

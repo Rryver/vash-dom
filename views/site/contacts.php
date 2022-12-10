@@ -42,19 +42,19 @@ if ($description) {
                     <div class="contacts-page__contacts contacts-list">
                         <?php if ($phone) { ?>
                             <a class="contacts-list__item link-text" href="tel:<?= $phone ?>">
-                                <img class="contacts-item-icon map-icon" src="images/icons/phone-call-black.svg" alt="">
+                                <img class="contacts-item-icon map-icon" src="/images/icons/phone-call-black.svg" alt="">
                                 <?= $phone ?>
                             </a>
                         <?php } ?>
                         <?php if ($email) { ?>
                             <a class="contacts-list__item link-text" href="mailto:<?= $email ?>">
-                                <img class="contacts-item-icon map-icon" src="images/icons/email.svg" alt="">
+                                <img class="contacts-item-icon map-icon" src="/images/icons/email.svg" alt="">
                                 <?= $email ?>
                             </a>
                         <?php } ?>
                         <?php if ($address) { ?>
                             <address class="contacts-list__item contacts-address link-text">
-                                <img class="contacts-item-icon map-icon" src="images/icons/map-marker-svgrepo-com.svg" alt="">
+                                <img class="contacts-item-icon map-icon" src="/images/icons/map-marker-svgrepo-com.svg" alt="">
                                 <?= $address ?>
                             </address>
                         <?php } ?>

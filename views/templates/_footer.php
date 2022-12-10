@@ -33,7 +33,7 @@ $workTime = Yii::$app->settings->get(SettingsContentForm::getSection(), 'workTim
         <?php } ?>
         <div class="footer__text">
             <a class="vk-link" href="https://vk.com/dom86" target="_blank">
-                <!--                <img src="images/vk_small.svg" alt="vk" class="vk-icon">-->
+                <!--                <img src="/images/vk_small.svg" alt="vk" class="vk-icon">-->
                 <svg class="vk-icon" xmlns="http://www.w3.org/2000/svg">
                     <use xlink:href="#icon-vk"/>
                 </svg>
