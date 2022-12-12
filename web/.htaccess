@@ -1,12 +1,4 @@
-RewriteEngine On RewriteBase /
-
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^owls-test.ru$ [OR]
-RewriteRule (.*)$ https://owls-test.ru/$1 [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
+RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteRule (.*) /index.php/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
