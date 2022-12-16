@@ -28,7 +28,7 @@ class SettingsConfigurationForm extends Model implements SettingsFormInterface
     public function rules(): array
     {
         return [
-            [['appName', 'adminEmail'], 'string'],
+            [['appName', 'adminEmail', 'privacyPolicyLink'], 'string'],
         ];
     }
 
