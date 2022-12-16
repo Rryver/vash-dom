@@ -515,7 +515,12 @@ button:focus {
 }
 .header__menu-button {
   display: none;
-  margin-left: 30px;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 60px;
+  width: 50px;
 }
 .header-wrapper {
   display: -webkit-box;
