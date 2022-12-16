@@ -3,8 +3,6 @@
 namespace app\controllers;
 
 use app\models\MainSlide;
-use app\models\Message;
-use app\models\MessagePromo;
 use app\models\Project;
 use app\models\Promo;
 use app\models\Step;

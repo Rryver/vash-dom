@@ -54,7 +54,7 @@ class Project extends GeneralModel
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            //[['title'], 'required'],
             [['title'], 'string', 'max' => 255],
             [['image'], 'string'],
             [['sort', 'visible', 'created_at', 'updated_at'], 'integer'],

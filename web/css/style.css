@@ -883,7 +883,7 @@ button:focus {
 .works-card {
   position: relative;
   display: inline-block;
-  max-width: 360px;
+  max-width: 355px;
   border-radius: 20px;
   overflow: hidden;
   margin-top: 15px;
@@ -924,17 +924,17 @@ button:focus {
 }
 @media screen and (max-width: 1200px) {
   .works-list .works-card {
-    max-width: 300px;
+    max-width: 295px;
   }
 }
 @media screen and (max-width: 992px) {
   .works-list .works-card {
-    max-width: 340px;
+    max-width: 325px;
   }
 }
 @media screen and (max-width: 768px) {
   .works-list .works-card {
-    max-width: 250px;
+    max-width: 235px;
   }
 }
 @media screen and (max-width: 576px) {

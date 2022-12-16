@@ -14,7 +14,7 @@ $workTime = Yii::$app->settings->get(SettingsContentForm::getSection(), 'workTim
 ?>
 <footer class="footer">
     <div class="footer__content">
-        <a class="footer__logo" href="#">
+        <a class="footer__logo" href="/">
             <img class="logo" src="/images/logo.svg" alt="logo">
         </a>
 

@@ -17,6 +17,7 @@ class MessageSearch extends Message
     {
         return [
             [['id'], 'integer'],
+            [['phone', 'name'], 'safe'],
         ];
     }
 
@@ -61,6 +62,9 @@ class MessageSearch extends Message
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+
+        $query->andFilterWhere(['LIKE', 'phone', $this->phone])
+            ->andFilterWhere(['LIKE', 'name', $this->name]);
 
         return $dataProvider;
     }

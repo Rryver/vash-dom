@@ -7,6 +7,13 @@ table.detail-view th {
     width: 30%;
 }
 
+.new-record {
+    background-color: #47a8ff1c;
+}
+
+.btn-new-record {
+    background-color: #ff8a37;
+}
 
 @media screen and (min-width: 1400px) {
     .container {

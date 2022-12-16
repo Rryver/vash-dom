@@ -11,7 +11,7 @@ $this->title = Yii::t('app', 'Обновить: {name}', [
     'name' => $model->title,
 ]);
 $this->params['breadcrumbs'][] = ['label' => 'Как мы работаем', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title ? : "Заголовок не задан", 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="order-update">

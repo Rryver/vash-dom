@@ -36,7 +36,8 @@ use yii\helpers\Url;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'visible')->dropDownList(GeneralModel::getYesNoOptions()) ?>
+    <?= $form->field($model, 'visible')->dropDownList(GeneralModel::getYesNoOptions())
+        ->hint('Выберите будет ли элемент выводится на сайте') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

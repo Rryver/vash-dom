@@ -52,7 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id',
                 'filter' => false,
             ],
-            'title',
+            [
+                'attribute' => 'title',
+                'format' => 'raw',
+            ],
             'description',
             'tag',
             'show_in_slider:boolean',

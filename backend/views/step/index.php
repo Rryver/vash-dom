@@ -48,8 +48,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img($model->image);
                 }
             ],
-            'id',
-            'title',
+            [
+                'attribute' => 'id',
+                'filter' => false,
+            ],
+            [
+                'attribute' => 'title',
+                'format' => 'raw',
+            ],
             'description',
             'visible:boolean',
             'created_at:datetime',

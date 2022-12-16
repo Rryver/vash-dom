@@ -22,7 +22,8 @@ $this->params['breadcrumbs'][] = ['label' => $this->title];
         ]); ?>
         <?php echo $form->field($model, 'appName'); ?>
 
-        <?php echo $form->field($model, 'adminEmail'); ?>
+        <?php echo $form->field($model, 'adminEmail')
+            ->hint('Почта, на которую будут отправляться уведомления о новых заявках'); ?>
 
         <?php echo Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
 

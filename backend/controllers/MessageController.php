@@ -9,6 +9,7 @@ use app\models\Message;
 use app\models\search\MessageSearch;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class MessageController extends AdminController
 {
@@ -35,8 +36,14 @@ class MessageController extends AdminController
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $model->isNew = 0;
+        $model->check = 142;
+        $model->save();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
@@ -56,4 +63,19 @@ class MessageController extends AdminController
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 
+    public function actionToggleIsNew($id)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        $model = $this->findModel($id);
+
+        $model->isNew = (int)!$model->isNew;
+        $model->check = 142;
+
+        if ($model->save()) {
+            return true;
+        }
+
+        return false;
+    }
 }

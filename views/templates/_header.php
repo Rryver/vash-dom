@@ -1,5 +1,6 @@
 <?php
 
+use app\models\MenuItem;
 use yii\helpers\Url;
 
 /**
@@ -10,6 +11,14 @@ use yii\helpers\Url;
 if (!isset($isSecondaryHeader)) {
     $isSecondaryHeader = false;
 }
+
+/** @var MenuItem[] $menuItems */
+$menuItems = [
+    new MenuItem(['label' => 'Галерея', 'url' => '/works']),
+    new MenuItem(['label' => 'О нас', 'url' => '/page/o-nas']),
+    new MenuItem(['label' => 'Акции', 'url' => '/promo']),
+    new MenuItem(['label' => 'Контакты', 'url' => '/contacts']),
+];
 
 ?>
 
@@ -24,20 +33,15 @@ if (!isset($isSecondaryHeader)) {
                         </a>
                     </div>
                     <div class="header__menu main-menu">
-                        <ul class="main-menu__list">
-                            <li class="main-menu__item">
-                                <a href="<?= Url::to('/works') ?>" class="main-menu__link">Галерея</a>
-                            </li>
-                            <li class="main-menu__item">
-                                <a href="<?= Url::to('/page/o-nas') ?>" class="main-menu__link">О нас</a>
-                            </li>
-                            <li class="main-menu__item">
-                                <a href="<?= Url::to('/promo') ?>" class="main-menu__link">Акции</a>
-                            </li>
-                            <li class="main-menu__item">
-                                <a href="<?= Url::to('/contacts') ?>" class="main-menu__link">Контакты</a>
-                            </li>
-                        </ul>
+                        <?php if ($menuItems) { ?>
+                            <ul class="main-menu__list">
+                                <?php foreach ($menuItems as $menuItem) { ?>
+                                    <li class="main-menu__item">
+                                        <a href="<?= Url::to($menuItem->url) ?>" class="main-menu__link <?= $menuItem->isItemActive() ? "active" : "" ?>"><?= $menuItem->label ?></a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        <?php } ?>
                         <div class="header__btns header__btns_mobile">
                             <span class="header__city"><img class="map-icon" src="/images/icons/map-marker-svgrepo-com.svg" alt="">Череповец</span>
                             <a class="vk-link" href="https://vk.com/dom86" target="_blank">
@@ -72,20 +76,15 @@ if (!isset($isSecondaryHeader)) {
         <div class="main-menu_mobile__btn-close-helper text-align-left">
             <button class="main-menu_mobile__button-close btn-close" id="btn-close-menu"></button>
         </div>
-        <ul class="main-menu_mobile__list">
-            <li class="main-menu_mobile__item">
-                <a href="<?= Url::to('/works') ?>" class="main-menu__link">Галерея</a>
-            </li>
-            <li class="main-menu_mobile__item">
-                <a href="<?= Url::to('/page/o-nas') ?>" class="main-menu__link">О нас</a>
-            </li>
-            <li class="main-menu_mobile__item">
-                <a href="<?= Url::to('/promo') ?>" class="main-menu__link">Акции</a>
-            </li>
-            <li class="main-menu_mobile__item">
-                <a href="<?= Url::to('/contacts') ?>" class="main-menu__link">Контакты</a>
-            </li>
-        </ul>
+        <?php if ($menuItems) { ?>
+            <ul class="main-menu_mobile__list">
+                <?php foreach ($menuItems as $menuItem) { ?>
+                    <li class="main-menu_mobile__item">
+                        <a href="<?= Url::to($menuItem->url) ?>" class="main-menu__link <?= $menuItem->isItemActive() ? "active" : "" ?>"><?= $menuItem->label ?></a>
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } ?>
         <div class="header__btns header__btns_mobile">
             <span class="header__city"><img class="map-icon" src="/images/icons/map-marker-svgrepo-com.svg" alt="">Череповец</span>
             <a class="vk-link" href="https://vk.com/dom86" target="_blank">

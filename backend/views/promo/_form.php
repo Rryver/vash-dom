@@ -40,8 +40,10 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'tag')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'show_in_slider')->dropDownList(GeneralModel::getYesNoOptions()) ?>
-    <?= $form->field($model, 'visible')->dropDownList(GeneralModel::getYesNoOptions()) ?>
+    <?= $form->field($model, 'show_in_slider')->dropDownList(GeneralModel::getYesNoOptions())
+        ->hint('Выберите, будет ли элемент выводится в слайдере на главной') ?>
+    <?= $form->field($model, 'visible')->dropDownList(GeneralModel::getYesNoOptions())
+        ->hint('Выберите будет ли элемент выводится на сайте') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
