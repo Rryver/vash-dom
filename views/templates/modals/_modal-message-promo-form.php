@@ -1,5 +1,6 @@
 <?php
 
+use app\backend\models\settings\SettingsConfigurationForm;
 use app\models\MessagePromo;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
@@ -43,6 +44,11 @@ $message = new MessagePromo();
                         'rows' => 4,
                     ])->label(false) ?>
 
+                    <div class="m-b-10">
+                        <?= $this->render('/templates/_privacy-policy', [
+                            'url' => Yii::$app->settings->get(SettingsConfigurationForm::getSection(), 'privacyPolicyLink')
+                        ]) ?>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-call_grey" data-bs-dismiss="modal">Закрыть</button>
                         <button type="submit" class="btn btn-call">Отправить</button>

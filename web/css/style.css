@@ -430,6 +430,7 @@ button:focus {
 .text-regular-16,
 .text-regular-14,
 .text-regular-12,
+.privacy-policy,
 .header__city,
 .request__title h2,
 .contacts-list__item {
@@ -448,7 +449,8 @@ button:focus {
 .header__city {
   font-size: 16px;
 }
-.text-regular-14 {
+.text-regular-14,
+.privacy-policy {
   font-size: 14px;
 }
 .text-regular-12 {
@@ -1011,6 +1013,9 @@ button:focus {
   .request__wrap {
     padding: 20px;
   }
+  .request__title {
+    margin-top: 220px;
+  }
   .request-form {
     width: 100%;
     text-align: center;
@@ -1033,6 +1038,11 @@ button:focus {
   }
   .request__title h2 {
     font-size: 36px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .request__title {
+    margin-top: 235px;
   }
 }
 .promo__content {

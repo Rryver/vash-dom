@@ -1,5 +1,6 @@
 <?php
 
+use app\backend\models\settings\SettingsConfigurationForm;
 use yii\helpers\Url;
 use yii\bootstrap5\ActiveForm;
 
@@ -52,6 +53,13 @@ $message = new \app\models\Message();
             ])->label(false) ?>
 
             <button type="submit" class="btn btn-call">Отправить</button>
+
+            <div class="m-t-10">
+                <?= $this->render('/templates/_privacy-policy', [
+                    'url' => Yii::$app->settings->get(SettingsConfigurationForm::getSection(), 'privacyPolicyLink')
+                ]) ?>
+            </div>
+
             <?php ActiveForm::end() ?>
         </div>
     </div>

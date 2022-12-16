@@ -20,12 +20,14 @@ $this->params['breadcrumbs'][] = ['label' => $this->title];
         <?php $form = ActiveForm::begin([
             'action' => \yii\helpers\Url::to(['/admin/settings/' . SettingsConfigurationForm::getActionName()]),
         ]); ?>
-        <?php echo $form->field($model, 'appName'); ?>
+        <?= $form->field($model, 'appName'); ?>
 
-        <?php echo $form->field($model, 'adminEmail')
+        <?= $form->field($model, 'adminEmail')
             ->hint('Почта, на которую будут отправляться уведомления о новых заявках'); ?>
 
-        <?php echo Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= $form->field($model, 'privacyPolicyLink')?>
+
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
 
         <?php ActiveForm::end(); ?>
     </div>

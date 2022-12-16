@@ -13,9 +13,14 @@ class SettingsConfigurationForm extends Model implements SettingsFormInterface
     public $appName;
 
     /**
-     * @var string admin email
+     * @var string Email, на который будут отправляться уведомления о новых заявках
      */
     public $adminEmail;
+
+    /**
+     * @var string Ссылка на страницу политики конфиденциальности
+     */
+    public $privacyPolicyLink;
 
     /**
      * @inheritdoc
@@ -33,8 +38,9 @@ class SettingsConfigurationForm extends Model implements SettingsFormInterface
     public function attributeLabels(): array
     {
         return [
-            'appName' => Yii::t('app', 'Application Name'),
-            'adminEmail' => Yii::t('app', 'Admin Email'),
+            'appName' => 'Имя приложения',
+            'adminEmail' => 'Email администратора',
+            'privacyPolicyLink' => 'Ссылка на страницу политики конфиденциальности',
         ];
     }
 

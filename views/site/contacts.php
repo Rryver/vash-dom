@@ -2,6 +2,7 @@
 
 /** @var yii\web\View $this */
 
+use app\backend\models\settings\SettingsConfigurationForm;
 use app\backend\models\settings\SettingsContentForm;
 use app\backend\models\settings\SettingsSeoForm;
 use yii\bootstrap5\ActiveForm;
@@ -84,6 +85,12 @@ if ($description) {
                             'placeholder' => 'Ваш вопрос',
                             'rows' => 4,
                         ])->label(false) ?>
+
+                    <div class="m-b-20">
+                        <?= $this->render('/templates/_privacy-policy', [
+                            'url' => Yii::$app->settings->get(SettingsConfigurationForm::getSection(), 'privacyPolicyLink')
+                        ]) ?>
+                    </div>
 
                     <div class="text-align-right">
                         <button type="submit" class="btn btn-call">Отправить</button>
