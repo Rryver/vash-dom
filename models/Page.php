@@ -41,12 +41,13 @@ class Page extends GeneralModel
     {
         return [
             TimestampBehavior::class,
-            [
-                'class' => SluggableBehavior::class,
-                'attribute' => 'title',
-                'slugAttribute' => 'slug',
-                'ensureUnique' => true,
-            ],
+            //TODO Не работает на проде. Если включен, ставит в поиск по страницам в адмнике -3
+//            [
+//                'class' => SluggableBehavior::class,
+//                'attribute' => 'title',
+//                'slugAttribute' => 'slug',
+//                'ensureUnique' => true,
+//            ],
         ];
     }
 
@@ -56,7 +57,7 @@ class Page extends GeneralModel
     public function rules()
     {
         return [
-            [['title'], 'required'],
+            [['title', 'slug'], 'required'],
             [['title', 'slug', 'seo_title', 'seo_keywords', 'seo_description'], 'string', 'max' => 255],
             [['content'], 'string'],
             [['visible', 'created_at', 'updated_at'], 'integer'],

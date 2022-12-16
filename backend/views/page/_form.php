@@ -24,7 +24,8 @@ use yii\helpers\Url;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true])
-        ->hint('Уникальный адрес, по которому можно попасть на страницу. Если оставить пустым, то будет сгенерирован автоматически') ?>
+        ->hint('На английском языке (можно транслитом) указать адрес, по которому будет доступна страница') ?>
+        <?php //->hint('Уникальный адрес, по которому можно попасть на страницу. Если оставить пустым, то будет сгенерирован автоматически') ?>
 
     <div class="container" style="margin-left: 0; padding-left: 0">
     <?= $form->field($model, 'content')->widget(\vova07\imperavi\Widget::class, [
