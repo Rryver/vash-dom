@@ -52,7 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id',
                 'filter' => false,
             ],
-            'title',
+            [
+                'attribute' => 'title',
+                'format' => 'raw',
+            ],
             'visible:boolean',
             'created_at:datetime',
             'updated_at:datetime',
